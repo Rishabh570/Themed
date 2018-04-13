@@ -1,0 +1,535 @@
+* {
+    box-sizing: border-box;
+}
+
+#css {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+    color: #0c0c0d;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#css p {
+    display: inline;
+}
+
+#css-inner {
+    color: rgba(255, 0, 0, 0.774);
+    font-size: 4rem;
+    font-weight: 800;
+    display: inline;
+    margin: 0;
+    font-family: 'Cute Font';
+}
+
+#head-image {
+    display: inline;
+}
+
+.container-main {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 15px;
+    background-color: rgba(37, 241, 173, 0.048);
+    border-radius: 10px;
+}
+
+.container1 {
+    float: left;
+    width: 23%;
+    height: 18em;
+    background-color: rgba(4, 248, 175, 0.096);
+    padding: 10px;
+    border-radius: 1em;
+    opacity: 0.8;
+}
+.container1:hover  {
+    opacity: 1;
+}
+.container1 h3 {
+    border-bottom: 0.5px dotted #111111;
+}
+
+.container2 {
+    position: relative;
+    left: 2.4em;
+    display: table;
+    width: 28%;
+    height: 18em;
+    background-color: rgba(144, 238, 144, 0.233);
+    padding: 10px 5px 10px 10px;
+    border-radius: 1em;
+    opacity: 0.8;
+}
+.container2:hover  {
+    opacity: 1;
+}
+
+.modes h3 {
+    border-bottom: 1px dotted black;
+}
+
+.container3 {
+    width: 51%;
+    display: inline-block;
+    height: 50em;
+    padding: 30px;
+    background-color: rgba(211, 211, 211, 0.199);
+    margin-top: 20px;
+    border-radius: 1em;
+    opacity: 0.8;
+}
+.container3:hover  {
+    opacity: 1;
+}
+
+.weather-options {
+    display: none;
+    width: 95%;
+    height: auto;
+    margin: auto;
+    padding: 5px;
+}
+#weatherOptions-head {
+    color: rgb(165, 3, 3);
+}
+#weatherSmallDes {
+    display: none;
+}
+#key1para,
+#key2para {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 1.4rem;
+    display: inline-block;
+}
+
+#key1,
+#key2 {
+    margin-left: 3em;
+    width: 8em;
+    height: 2.3em;
+    border-radius: 0.4em;
+    background-color: rgba(149, 241, 247, 0.514);
+    transition: transform 0.3s ease-out;
+}
+#key1:focus,
+#key2:focus {
+    transform: scaleX(1.2);
+}
+
+
+.container4 {
+    float: right;
+    height: 18em;
+    position: relative;
+    top: 0;
+    right: 3em;
+    padding: 10px;
+    background-color: rgba(211, 211, 211, 0.363);
+    font-family: 'Luckiest Guy', cursive;
+    border-radius: 1em;
+    opacity: 0.8;
+    width: 35%;
+}
+.container4 h4 {
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+.container4:hover  {
+    opacity: 1;
+}
+
+.container5 {
+    padding: 8px;
+    margin: auto;
+    margin-top: 5em;
+    width: 100%;
+    height: 15em;
+    border-radius: 1em;
+    background-color: rgba(24, 131, 194, 0.062);
+    border: 0.5px dashed rgba(255, 38, 0, 0.589);
+}
+#warning-head {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 1.9rem;
+    font-weight: 500;
+    display: inline-block;
+    position: relative;
+    top: -10px;
+    left: 5px;
+}
+
+
+.customize-head {
+    text-align: center;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 1.2rem;
+    color: rgba(165, 22, 22, 0.575);
+    font-weight: 600;
+    display: inline-block;
+}
+
+#customize-button {
+    width: 110px;
+    height: 33px;
+    background-color: rgba(220, 223, 12, 0.473);
+    color: rgba(158, 1, 1, 0.753);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 1.2rem;
+    opacity: 0.8;
+    margin: auto;
+    margin-top: 1em;
+    display: block;
+    border-radius: 0.3em;
+    box-shadow: 2px 2px 2.3px 2.3px rgba(216, 73, 6, 0.288);
+    border: 2px solid rgba(255, 0, 0, 0.89);
+}
+#customize-button:hover {
+    opacity: 1;
+}
+.settings {
+    display: none;
+    padding: 10px;
+    font-size: 1.1rem;
+    color: rgba(54, 3, 3, 0.575);
+    text-align: center;
+    margin-bottom: 5px;
+}
+#ok {
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    background-color: rgba(220, 223, 12, 0.473);
+    border: 2px solid rgba(255, 0, 0, 0.89);
+    box-shadow: 2px 2px 2.3px 2.3px rgba(216, 73, 6, 0.288);
+    border-radius: 0.3em;
+    font-size: 1.2rem;
+    font-family: 'IBM Plex Sans', sans-serif;
+    
+}
+.labels {
+    position: relative;
+    left: -20px;
+    display: inline-block;
+    width: 12em;
+    margin-bottom: 1em;
+}
+#clear {
+    display: none;
+    width: 80px;
+    height: 33px;
+    margin: auto;
+    margin-top: 1em;
+    padding: 7px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 1.2rem;
+    background-color: rgba(220, 223, 12, 0.473);
+    color: rgba(158, 1, 1, 0.753);
+    border-radius: 0.3em;
+    box-shadow: 2px 2px 2.3px 2.3px rgba(216, 73, 6, 0.288);
+    border: 2px solid rgba(255, 0, 0, 0.89);
+    opacity: 0.8;
+}
+#clear:hover {
+    opacity: 1;
+}
+
+.color-inputs {
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    display: block;
+    margin: auto;
+    border: 3px solid rgba(141, 13, 4, 0.753);
+    display: inline-block;
+}
+.color-inputs:hover {
+    cursor: pointer;
+    background-color: black;
+}
+.container-customize {
+    float: right;
+    width: 47%;
+    height: 50em;
+    padding: 30px;
+    background-color: rgba(184, 243, 108, 0.281);
+    margin-top: 20px;
+    border-radius: 1em;
+}
+
+
+.footer  {
+    padding: 8px;
+    background-color: rgba(96, 204, 7, 0.082);
+    border: 0.5px dashed rgba(84, 95, 19, 0.233);
+    border-radius: 1em;
+    width: 100%;
+    margin: auto;
+    margin-top: 3em;
+    height: 15em;
+}
+#footer-head {
+    font-size: 2.4rem;
+    font-weight: 500;
+    display: inline-block;
+    position: relative;
+    top: -20px;
+    left: 5px;
+}
+
+#footer-image {
+    display: inline-block;
+}
+
+.footer-content {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: -20px;
+}
+
+#info {
+    display: inline;
+}
+#freq-value {
+    display: inline-block;
+}
+
+::before,
+::after {
+    clear: both;
+}
+
+#list2,
+#list,
+#list3 {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+#list2 li {
+    display: inline-block;
+}
+
+#list4,
+#list5 {
+    list-style: none;
+
+}
+
+.quote-options {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    display: none;
+}
+
+#quote-head {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 1rem;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    left: 0;
+    right: 0;
+    color: rgba(16, 5, 175, 0.767)
+}
+
+.quote-mode {
+    width: 100%;
+}
+
+
+.inputs {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 13px;
+    font-weight: 300;
+    color: #0c0c0d;
+    display: inline-block;
+    margin-top: auto;
+
+}
+
+#submit {
+    /* display: inline-block; */
+    float: right;
+    text-align: center;
+    width: 95px;
+    height: 30px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    background-color: white;
+    border: 1px solid #b69d9d;
+    border-radius: 3px;
+    color: rgba(1, 5, 10, 0.986);
+    margin: auto;
+    margin-top: 20px;
+}
+
+#submit:hover {
+    background-color: rgba(179, 240, 228, 0.315);
+}
+.final-footer {
+    width: 100%;
+    background-color: green;
+}
+#info-credit {
+    float: left;
+    padding: 20px;
+    opacity: 0.5;
+}
+#info-credit:hover {
+    opacity: 1;
+}
+
+.modes-text {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 12px;
+    font-weight: 300;
+    color: #0c0c0d;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 180px;
+    background-color: rgba(172, 7, 48, 0.671);
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 6px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 30%;
+    margin-left: 0px;
+
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 10px;
+    margin-left: 5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgba(172, 7, 48, 0.671) transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/* ################################ MEDIA QUERIES ##################################### */
+
+@media (max-width: 785px) {
+    .container-main {
+        width: 90%;
+        padding: 10px;
+    }
+    #css {
+        font-size: 15px;
+    }
+    .container1 {
+        width: 25%;
+        padding: 7px;
+    }
+    .container2 {
+        width: 34%;
+    }
+    .container3 {
+        width: 50%;
+    }
+    .container4 {
+        width: 30%;
+        right: 1.4em;
+    }
+    .container5 {
+        height: auto;
+        padding: 5px;
+        top: 3em;
+    }
+    .container-customize {
+        width: 49%;
+    }
+    .settings {
+        padding: 5px;
+        font-size: 1rem;
+    }
+    #list,
+    #list2,
+    #list3 {
+        left: -35px;
+    }
+}
+
+@media (max-width: 730px) {
+    .container2 {
+        left: 1.5em;
+    }
+    .container4 {
+        right: 0.7em;
+        width: 34%;
+    }
+}
+
+@media (max-width: 685px) {
+    .footer {
+        padding: 3px;
+        top: 2em;
+        height: 16em;
+    }
+    .labels {
+        width: 9em;
+    }
+}
+
+@media (max-width: 640px) {
+    .container1 {
+        width: 20%;
+    }
+    .settings {
+        padding: 3px;
+        font-size: 0.9rem;
+    }
+    .container4 {
+        width: 38%;
+    }
+    .labels {
+        width: 7em;
+        /* background-color: yellow; */
+    }
+    #weatherOptions-head {
+        display: none;
+    }
+    #weatherSmallDes {
+        display: inline-block;
+    }
+}
