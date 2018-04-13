@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Configure</title>
+  <link href="assets/font/IBM_Plex_Sans.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/font/luckiest_guy.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel='stylesheet' href='../assets/css/spectrum.css' />
+  <link rel="stylesheet" href="../assets/font/Merienda.css">
+  <link rel="stylesheet" href="../assets/font/Cute-font.css">
+</head>
+<body>
+        <div class="container-main">
+            <div id='css'>
+                <p>How you want it to be <img src="../assets/theme.png" alt="paint-brush here" id="head-image"><p id='css-inner'>TheMeD?</p></p>
+            </div>
+
+            <div class="container4">
+                    <h4>How often you want themes to be changed !?</h4>
+                    <input type="range" id="frequency-input" min="15" max="60" step="15" value="0"><br>
+                    <p id='info'>( In every <p id="freq-value">15</p> minutes )</p>
+                    <label><input type="checkbox" name="prevent" id="prevent" checked>Don't change themes automatically</label><br>
+            </div>
+
+            <div class="container1">
+                <div class="tooltip">
+                    <h3>Category:</h3>
+                    <span class="tooltiptext">These themes can be set to change automatically.</span>
+                </div>
+                
+                <ul id="list">
+                    <li>
+                        <label><input type="radio" name="themes" value="natural" id='natural' checked><p class="inputs">Natural</p></label>
+                    </li>
+                    <li>
+                        <label><input type="radio" name="themes" value="animals" name="animals" id="animals"><p class="inputs">Animals</p></label>
+                    </li>
+                    <li>
+                       <label><input type="radio" name="themes" value="plain" name="plain" id="plain"><p class="inputs">Plain</p></label>
+                    </li>
+                    <li>
+                        <label><input type="radio" name="themes" value="patterns" name="patterns" id="patterns"><p class="inputs">Patterns</p></label>
+                    </li>
+                    <li>
+                        <label><input type="radio" name="themes" value="graffiti" name="graffiti" id="graffiti"><p class="inputs">Graffiti</p></label>
+                    </li>
+                </ul>
+    
+            </div>
+
+            <div class="container2">
+                <div class="tooltip modes">
+                    <h3>Modes:</h3>
+                    <span class="tooltiptext">Both modes can be activated simultaneously</span>
+                </div>
+                <ul id="list2">
+                    <li>
+                        <div class="private-mode tooltip">
+                            <span class="tooltiptext">Enabling this will change theme every time you go incognito. (Theme changes with every tab creation)</span>
+                            <label><input type="checkbox" name="private" id="private"><p class="modes-text">Private Mode</p></label>
+                            <!-- <svg class='svg' xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                <path fill="context-fill" d="M12.408 11.992c-1.663 0-2.813-2-4.408-2s-2.844 2-4.408 2C1.54 11.992.025 10.048 0 6.719c-.015-2.068.6-2.727 3.265-2.727S6.709 5.082 8 5.082s2.071-1.091 4.735-1.091 3.28.66 3.265 2.727c-.025 3.33-1.54 5.274-3.592 5.274zM4.572 6.537c-1.619.07-2.286 1.035-2.286 1.273s1.073.909 2.122.909 2.286-.384 2.286-.727a1.9 1.9 0 0 0-2.122-1.455zm6.857 0a1.9 1.9 0 0 0-2.123 1.455c0 .343 1.236.727 2.286.727s2.122-.671 2.122-.909-.667-1.203-2.286-1.273z"></path>
+                            </svg> -->
+                            <img src="../assets/private.png" alt="lock picture" class="img-fluid" width="16" height="16">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dan-mode tooltip">
+                            <span class="tooltiptext">Enabling this will change theme according to the time of the day. Reduces your eye strain at night (8pm to 8am).</span>
+                            <label><input type="checkbox" name="dan" id="dan"><p class="modes-text">Day and Night Mode</p></label>
+                            <!-- <svg class="svg" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512">
+                                <path d="M188.46,149.75l18.08,13.13-6.9,21.26a17.27,17.27,0,0,0,26.57,19.31l18.08-13.14,18.08,13.14a17.27,17.27,0,0,0,26.57-19.31L282,162.88l18.08-13.13A17.27,17.27,0,0,0,290,118.52H267.61L260.7,97.26a17.27,17.27,0,0,0-32.84,0L221,118.52H198.6a17.27,17.27,0,0,0-10.15,31.23Zm40.25-9.9a10.67,10.67,0,0,0,10.15-7.37l5.43-16.71,5.43,16.71a10.66,10.66,0,0,0,10.14,7.37h17.57l-14.22,10.33a10.67,10.67,0,0,0-3.88,11.93l5.43,16.72-14.22-10.33a10.66,10.66,0,0,0-12.54,0l-14.22,10.33,5.43-16.72a10.67,10.67,0,0,0-3.88-11.93l-14.22-10.33Zm38,110.82A10.67,10.67,0,1,1,256,261.34,10.67,10.67,0,0,1,266.66,250.67ZM352,197.34A10.67,10.67,0,1,1,362.66,208,10.67,10.67,0,0,1,352,197.34ZM298.66,48a10.67,10.67,0,1,1,10.67,10.67A10.67,10.67,0,0,1,298.66,48ZM512,367.2A48.9,48.9,0,0,1,463.11,416H317.17a55.74,55.74,0,1,1,6.13-111.13,80.18,80.18,0,0,1,152.36,15.2A49.12,49.12,0,0,1,512,367.2ZM317.17,437.34H330a211.49,211.49,0,0,1-119.59,37.33c-2.93,0-5.85-.06-8.79-.19C93.21,469.92,4.75,381.46.19,273.09A211.7,211.7,0,0,1,113.61,77,26.75,26.75,0,0,1,149,114.11a154.22,154.22,0,0,0-20.58,90.07c5,65.6,52.11,120.43,114,137.18a76.79,76.79,0,0,0,74.74,96Z"/>
+                            </svg> -->
+                            <img src="../assets/dan.png" alt="sun-moon picture" class="img-fluid" width="16" height="16">
+                        </div>
+                    </li>
+
+                </ul> 
+            </div>
+
+            <div class="container3">
+                <h3>Special Modes :</h3>
+                <ul id="list3">
+                    <li>
+                        <div class="weather-mode tooltip">
+                            <span class="tooltiptext">Senses Real-Time weather and applies themes accordingly.
+                            </span>
+                            <label><input type="checkbox" name="weather" id="weather"><p class="modes-text">Feel the weather</p></label>
+                            <img src="../assets/weather.png" alt="clouds" class="img-fluid" width="40" height="40">
+                        </div>
+                        <div class="weather-options">
+                            <p id="weatherOptions-head">
+                                This mode makes API calls to openweathermap.org, requests cannot be made blindly.
+                                You should make an account at <strong>openweathermap.org</strong> and provide your API key below so that if one request gets
+                                rebounded, you wouldn't have to suffer :)</strong>
+                                <strong>You can surely skip the step below and this mode will work then also but if you don't want any inconvenience due to request limits, it is highly recommended.</strong>
+                                <strong>You can provide upto 2 API keys for maximum working assurance :)</strong>
+                            </p>
+                            <p id="weatherSmallDes">Provide your openweathermap API key for maximum working assurance. It's not compulsory though :)</p>
+                            <div class="" id="weatherOptions-body">
+                                <label for="key1"><p id="key1para">API key 1:</p><input type="text" name='key1' id="key1"></label>
+                                <label for="key2"><p id="key2para">API key 2:</p><input type="text" name='key2' id="key2"></label>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="quotes-mode tooltip">
+                        <div class="quote-mode">
+                            <span class="tooltiptext">Wanna have fresh quotes everyday? This mode is for you</span>
+                            <label><input type="checkbox" name="quote" id="quote"><p class="modes-text">Feed me Quotes</p></label>
+                            <img src="../assets/quote.png" alt="quote" class="img-fluid" width="30" height="30">
+                        </div>
+                        <div class="quote-options">
+                            <p id="quote-head">Just one more step...Please choose a Category :</p>
+                            <ul id="list4">
+                                    <li>
+                                        <label><input type="radio" name="quotes" value="inspire" id='inspire' checked><p class="inputs">Inspire</p></label>
+                                    </li>
+                                    <li>
+                                        <label><input type="radio" name="quotes" value="management" id="management"><p class="inputs">Management</p></label>
+                                    </li>
+                                    <li>
+                                        <label><input type="radio" name="quotes" value="sports" id="sports"><p class="inputs">Sports</p></label>
+                                    </li>
+                                    <li>
+                                        <label><input type="radio" name="quotes" value="life" id="life"><p class="inputs">Life</p></label>
+                                    </li>
+                                    <li>
+                                        <label><input type="radio" name="quotes" value="funny" id="funny"><p class="inputs">Funny</p></label>
+                                    </li>
+                                    <li>
+                                        <label><input type="radio" name="quotes" value="love" id="love"><p class="inputs">Love</p></label>
+                                    </li>
+                                    <li>
+                                        <label><input type="radio" name="quotes" value="art" id="art"><p class="inputs">Art</p></label>
+                                    </li>
+                                    <li>
+                                        <label><input type="radio" name="quotes" value="students" id="students"><p class="inputs">Students</p></label>
+                                    </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                </ul>
+
+                <div class="container5">
+                    <img src="../assets/warning1.png" alt="warning" class="img-fluid" width="32" height="32">
+                    <h2 id="warning-head">Important</h2>
+                    <div>
+                        <ul>
+                            <li>Enabling any one of the<strong> Special Modes</strong> will disable normal <strong>Modes</strong>.</li>
+                            <li>Modes here are listed <strong>precedence wise</strong>.<br>For example, if Weather Mode is on then Quotes Mode will not take effect <strong>:)</strong> </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div> <!--container3 ends -->
+
+            <div class="container-customize">
+                <div class="part1">
+                    <p class="customize-head">Didn't find what you wanted? Maybe some customization can make you happy...</p>
+            
+                    
+                    <button type="submit" id="customize-button">
+                        <span id="customize">Customize</span>
+                        
+                        <svg version="1.1" width='16' height='16' id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            viewBox="0 0 446 446" style="enable-background:new 0 0 446 446;" xml:space="preserve">
+                            <path style="fill:#FFFFFF;" d="M11.6,86.9c-4.8-4.8-4.8-12,0-16.8l0,0l48-48c4.8-4.8,12-4.8,16.8,0l0,0l32,32l-64.8,64.8L11.6,86.9z"/>
+                            <polygon style="fill:#FFC525;" points="108.4,54.1 75.6,86.1 43.6,118.9 158,233.3 190.8,201.3 223.6,168.5 "/>
+                            <path style="fill:#FFFFFF;" d="M198.8,269.3c-3.2,0-5.6-1.6-8-3.2l-32-32l64.8-64.8l32,32c4.8,4.8,4.8,12,0,16.8l-48,48C205.2,267.7,202,269.3,198.8,269.3z"/>
+                            <path style="fill:#D2F1FF;" d="M43.6,82.9L21.2,60.5l-9.6,9.6c-4.8,4.8-4.8,12,0,16.8l0,0l32,32l64.8-64.8L90.8,36.5L43.6,82.9z"/>
+                            <polygon style="fill:#F2A216;" points="190.8,165.3 158,198.1 61.2,100.5 43.6,118.9 158,233.3 190.8,201.3 223.6,168.5 205.2,150.9 "/>
+                            <path style="fill:#D2F1FF;" d="M246,191.7l-39.2,38.4c-4.8,4.8-12,4.8-16.8,0l0,0l-13.6-14.4l-17.6,17.6l32,32c4.8,4.8,12,4.8,16.8,0l0,0l48-48c4.8-4.8,4.8-12,0-16.8L246,191.7z"/>
+                            <rect x="265.015" y="218.286" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 700.3191 304.8889)" style="fill:#6EBDE8;" width="44" height="158.398"/>
+                            <rect x="339.451" y="345.699" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 880.2648 377.9794)" style="fill:#FFFFFF;" width="44.8" height="51.2"/>
+                            <polygon style="fill:#428EC1;" points="342.8,354.1 230.8,242.1 246.8,226.1 246.8,226.1 215.6,257.3 327.6,369.3 358.8,338.1 358.8,338.1 "/>
+                            <rect x="342.72" y="353.919" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 871.8559 397.9033)" style="fill:#D2F1FF;" width="21.6" height="51.2"/>
+                            <path style="fill:#6EBDE8;" d="M438,86.1v19.2c-0.8,41.6-34.4,75.2-76.8,75.2c-11.2,0-23.2-3.2-32.8-8l9.6,4.8l-69.6,70.4
+                                l-21.6-21.6l8-8c4.8-4.8,4.8-12,0-16.8l0,0l-16-17.6l52-52l4.8,8c-19.2-36.8-4.8-82.4,32-102.4c10.4-5.6,22.4-8.8,34.4-8.8h20
+                                l-39.2,37.6l4,53.6l53.6,4L438,86.1z M237.2,278.9l-21.6-21.6l-8,8c-4.8,4.8-12,4.8-16.8,0l0,0L174,248.5l-44.8,44.8l9.6,4.8
+                                c-34.4-17.6-76-4-92.8,29.6c-4.8,8-7.2,15.2-8,23.2l-3.2,23.2L62,346.9l53.6,4l4,53.6l-27.2,27.2l23.2-3.2
+                                c34.4-4,60.8-34.4,60.8-68.8c0-8.8-1.6-17.6-4.8-26.4l3.2,8L237.2,278.9z"/>
+                            <g>
+                                <path style="fill:#428EC1;" d="M286,104.5l2.4,4C287.6,106.9,286.8,105.3,286,104.5L286,104.5L286,104.5z"/>
+                                <path style="fill:#428EC1;" d="M427.6,96.5c-10.4,31.2-39.2,52.8-72,52.8c-8,0-16-0.8-24-3.2L262,215.7l-3.2-3.2
+                                    c-0.8,1.6-1.6,3.2-3.2,4.8l-8.8,8.8l21.6,21.6l69.6-69.6l-9.6-4.8c37.6,18.4,83.2,3.2,101.6-34.4c4.8-10.4,8-21.6,8-32.8V86.9
+                                    L427.6,96.5z"/>
+                                <path style="fill:#428EC1;" d="M237.2,278.9L218,259.7l-50.4,50.4c0.8,6.4,1.6,12,1.6,18.4c0,31.2-20.8,58.4-50.4,66.4l0.8,8.8
+                                    l-27.2,28l23.2-3.2c34.4-4,60.8-34.4,60.8-68.8c0-8.8-1.6-17.6-4.8-26.4l3.2,8L237.2,278.9z"/>
+                            </g>
+                            <path style="fill:#04142B;" d="M438,80.5c-3.2-0.8-5.6,0-8,2.4l-32.8,32.8l-42.4-3.2l-3.2-42.4l32.8-32.8c3.2-3.2,3.2-8,0-11.2
+                                c-0.8-0.8-2.4-1.6-4-2.4c-6.4-1.6-12-2.4-18.4-2.4c-46.4,0-84,37.6-84,84c0,8,0.8,16,3.2,24L238,172.5L82,15.7c-8-7.2-20-7.2-28,0
+                                l-48,48c-8,8-8,20,0,28l0,0l156,156.8l-36,36c-6.4-1.6-12.8-2.4-19.2-2.4c-42.4,0-76.8,35.2-76.8,77.6c0,4,0,8,0.8,12
+                                s4.8,7.2,8.8,6.4c1.6,0,3.2-0.8,4-2.4l21.6-21.6l42.4,3.2l3.2,42.4l-21.6,21.6c-3.2,3.2-3.2,8,0,11.2c1.6,1.6,3.2,2.4,4.8,2.4
+                                c4,0.8,8,0.8,12.8,0.8l0,0c42.4,0,76.8-35.2,76.8-77.6l0,0c0-4.8-0.8-10.4-1.6-15.2l54.4-54.4l120.8,120.8c3.2,3.2,8,3.2,11.2,0
+                                l31.2-31.2c3.2-3.2,3.2-8,0-11.2l-120-119.2l61.6-61.6c6.4,1.6,13.6,2.4,20.8,2.4l0,0c46.4,0,84-37.6,84-84c0-6.4-0.8-12.8-2.4-18.4
+                                C442.8,83.7,441.2,81.3,438,80.5z M250,206.1c1.6,1.6,1.6,4,0,5.6l-48,48c-0.8,0.8-1.6,0.8-2.4,0.8c-0.8,0-1.6-0.8-2.4-0.8
+                                l-26.4-26.4l53.6-53.6L250,206.1z M212.4,168.5l-21.6,21.6L87.6,86.1l21.6-21.6L212.4,168.5z M17.2,80.5c-1.6-1.6-1.6-4,0-5.6l0,0
+                                l48-48c1.6-1.6,4-1.6,5.6,0l0,0l26.4,26.4l-53.6,53.6L17.2,80.5z M158,222.1L54.8,118.9l20.8-20.8l103.2,103.2L158,222.1z
+                                    M150,402.9c-9.6,9.6-22.4,16-35.2,17.6l10.4-10.4c1.6-1.6,2.4-4,2.4-6.4l-4-53.6c0-4-3.2-7.2-7.2-7.2l-53.6-4l0,0
+                                c-2.4,0-4,0.8-5.6,2.4L46,351.7c4-33.6,35.2-57.6,68.8-52.8s57.6,35.2,52.8,68.8C166,380.5,159.6,393.3,150,402.9L150,402.9z
+                                    M177.2,327.7c-7.2-16-19.2-28.8-35.2-36l31.2-31.2l11.2,11.2c8,8,20,8,28,0l0,0l3.2-2.4l10.4,10.4L177.2,327.7z M383.6,374.1
+                                l-20,20l-24.8-24.8l20-20L383.6,374.1z M347.6,338.1l-20,20L226.8,257.3l20-20L347.6,338.1z M268.4,235.7L258,225.3l2.4-2.4
+                                c8-8,8-20,0-28l0,0L250,183.7l38.4-39.2c8,15.2,20.8,27.2,36,35.2L268.4,235.7z M410,152.5c-12.8,12.8-29.6,20-48,20l0,0
+                                c-37.6,0-68-29.6-68-67.2s29.6-68,67.2-68l0,0l-24,24c-1.6,1.6-2.4,4-2.4,6.4l4,53.6c0,4,3.2,7.2,7.2,7.2l53.6,4
+                                c2.4,0,4.8-0.8,6.4-2.4l24-24C429.2,122.9,422.8,139.7,410,152.5z"/><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+                        </svg>
+                    </button>
+
+                    <button id="clear">
+                        <span id="clear-button">Clear</span>
+                        <svg width='16' height='16' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512px" height="512px">
+                            <g><g><path d="M478.213,163.264l-46.805-80.939c-5.099-9.344-16.107-14.229-27.648-9.963l-52.885,21.248    c-10.048-7.232-20.608-13.376-31.531-18.304L311.301,19.2C309.936,8.256,300.443,0,289.221,0h-93.867    c-11.221,0-20.715,8.256-22.059,19.008l-8.064,56.277c-10.581,4.8-20.971,10.859-31.467,18.325L80.731,72.299    c-10.197-3.925-22.357,0.491-27.435,9.771L6.405,163.157c-5.632,9.557-3.307,21.952,5.44,28.864l44.821,35.029    c-0.704,6.763-1.045,12.672-1.045,18.283s0.341,11.52,1.024,18.283l-44.843,35.051c-8.555,6.763-10.901,18.752-5.44,28.736    l46.805,80.96c5.099,9.323,16.128,14.208,27.669,9.941l52.885-21.248c10.048,7.232,20.608,13.376,31.531,18.304l8.043,56.085    c1.344,10.965,10.837,19.221,22.059,19.221h73.515c3.989,0,7.616-2.219,9.451-5.739c1.835-3.52,1.557-7.765-0.704-11.029    c-16.32-23.381-24.96-50.795-24.96-79.232c0-13.269,1.941-26.56,5.781-39.509c0.981-3.328,0.299-6.912-1.856-9.643    c-2.155-2.709-5.461-4.16-8.939-4.053c-1.152,0.064-2.283,0.213-5.184,0.576c-53.056,0-96.213-43.157-96.213-96.213    c0-53.056,43.157-96.235,96.213-96.235c53.056,0,96.213,43.157,96.021,97.984c-0.149,1.131-0.299,2.261-0.363,3.413    c-0.171,3.477,1.344,6.805,4.053,8.939c2.731,2.155,6.336,2.795,9.643,1.856c20.757-6.187,41.216-7.659,64.384-3.456    c2.837,0.512,5.952-0.768,8.341-2.539c2.368-1.771,3.947-5.056,4.267-8c0.043-0.384,0.149-2.112,0.149-2.496    c0-6.635-0.469-12.885-1.024-18.283L472.752,192C481.307,185.259,483.653,173.269,478.213,163.264z" fill="#c75676"/></g></g><g><g><path d="M497.989,298.667c-5.888,0-10.667,4.779-10.667,10.667v26.027c-16.085-28.309-48.213-58.027-96-58.027    c-64.704,0-117.333,52.629-117.333,117.333S326.619,512,391.323,512c5.888,0,10.667-4.779,10.667-10.667    c0-5.888-4.779-10.667-10.667-10.667c-52.928,0-96-43.072-96-96s43.072-96,96-96c50.304,0,77.973,41.557,84.779,64h-42.112    c-5.888,0-10.667,4.779-10.667,10.667c0,5.888,4.779,10.667,10.667,10.667h64c5.888,0,10.667-4.779,10.667-10.667v-64    C508.656,303.445,503.899,298.667,497.989,298.667z" fill="#c75676"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+                        </svg>
+                    </button>
+
+                    <div class="footer">
+                        <img id='footer-image' src="../assets/browsers.png" class="img-fluid" alt="browser-window" width="50" height="50">
+                        <h2 id="footer-head">Tip!</h2>
+                        <div class="footer-content">
+                            <p>For customizing themes, it will be nice if you know what <strong>accentcolor</strong>, <strong>textcolor</strong>, <strong>toolbar color</strong>, <strong>tab text color</strong> etc. refers to..., but if you don't, nobody is stopping you <strong>to play with it :)</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings part2">
+                    <div id="back">
+                        <svg width='32' height='32' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 193.266 193.266" style="enable-background:new 0 0 193.266 193.266;" xml:space="preserve">
+                            <g><path d="M183.011,111.191c-13.503-36.417-51.753-46.329-86.965-37.976c1.185-8.843,0.875-17.887,0.649-26.781   C96.494,38.482,97,29.389,95.584,21.28c-0.005-0.037-0.013-0.071-0.018-0.107c-0.258-1.465-0.56-2.907-0.963-4.292   c-0.79-2.72-4.822-2.799-5.572,0c-0.139,0.515-0.218,1.048-0.325,1.573c-14.494,2.817-27.809,13.573-38.962,22.392   c-6.306,4.986-12.443,10.196-18.487,15.511c-0.609-0.107-1.174,0.392-1.099,0.969C20.107,66.224,10.404,75.518,1.236,85.305   c-1.426,1.523-1.855,4.518,0,5.972c30.215,23.666,57.453,52.513,89.75,73.318c0.635,0.409,1.248,0.315,1.7-0.025   c1.129,0.224,2.323-0.152,3.133-1.298c3.548-5.033,1.35-16.004,1.158-21.858c-0.319-9.69-0.359-19.447-1.299-29.103   c-0.306-3.148-4.586-3.148-4.892,0c-0.208,2.139-0.363,4.281-0.492,6.427c-20.425-16.76-42.62-32.602-64.911-46.671   c3.142-3.206,6.384-6.417,9.706-9.579c17.919,17.464,39.387,32.001,59.841,46.1c0.571,0.394,1.116,0.463,1.593,0.346   c-1.207,1.029-1.539,2.12,0.312,3.051c3.231,1.624,7.92-0.111,11.33-0.231c10.472-0.368,21.174,1.799,31.254,4.421   c27.209,7.077,36.858,32.485,35.867,58.302c-0.162,4.208,4.941,5.065,7.204,2.634C204.136,172.434,187.177,122.427,183.011,111.191   z M88.837,157.484c-23.365-25.615-51.154-48.365-78.416-69.66c2.155-2.315,4.39-4.705,6.668-7.12   c19.029,25.518,47.702,41.455,72.384,60.894C89.285,145.7,88.26,152.22,88.837,157.484z M90.037,123.879   c-0.162,4.025-0.254,8.054-0.372,12.08c-23.843-18.807-50.812-33.954-71.053-56.869c1.762-1.859,3.572-3.737,5.402-5.62   C46.408,89.391,66.472,109.772,90.037,123.879z M175.227,113.337c0.388,0.962,0.846,2.13,1.327,3.38   c-4.065-4.199-8.558-8.104-12.592-12.078c-8.462-8.339-17.324-16.26-26.242-24.102c-0.074-0.065-0.153-0.094-0.229-0.134   C153.939,84.858,167.891,95.087,175.227,113.337z M88.021,27.104C88.114,31.48,88.651,35.917,89,40.16   c-1.274-0.877-2.578-1.695-3.752-2.525c-2.876-2.031-5.853-3.905-8.873-5.709C80.205,30.026,84.085,28.381,88.021,27.104z    M73.448,33.453c3.091,1.995,6.117,4.073,9.061,6.282c2.224,1.668,4.412,3.892,6.821,5.546c0.125,2.239,0.251,4.477,0.361,6.72   c-3.283-2.633-7.01-4.847-10.415-7.213c-4.007-2.784-8.194-5.403-12.651-7.413C68.875,35.97,71.156,34.682,73.448,33.453z    M63.941,39.094c4.186,2.222,8.243,4.523,12.17,7.215c4.617,3.165,8.874,7.295,13.794,9.992c0.095,1.959,0.187,3.918,0.291,5.876   c-4.137-2.947-9.297-5.183-13.327-7.531c-6.35-3.699-12.537-7.595-18.672-11.602C60.093,41.671,62.012,40.362,63.941,39.094z    M104.335,105.296c-0.323,0.056-4.208,1.296-6.711,2.84c0.688-0.955,0.764-2.481-0.44-3.406   C77.457,89.566,56.738,75.862,37.016,60.667c2.521-2.36,5.105-4.66,7.718-6.924c23.335,16.969,47.495,32.496,69.889,50.762   C111.075,104.513,107.601,104.741,104.335,105.296z M119.264,104.628c0.382-0.715,0.353-1.603-0.473-2.339   C96.915,82.781,71.129,68.128,46.737,52.032c3.079-2.607,6.219-5.115,9.409-7.5c5.407,4.148,11.154,7.877,16.839,11.605   c5.502,3.607,11.394,8.754,17.526,11.596c0.153,2.407,0.316,4.812,0.521,7.21c-1.264,1.352-0.779,3.649,0.804,4.59   c0.73,0.819,2.023,1.022,2.76,0.261c3.474-0.692,6.979-1.195,10.482-1.563c9.283,11.346,21.512,20.502,33.053,29.368   C132.202,106.083,125.709,104.986,119.264,104.628z M141.533,108.496c-0.284-0.084-0.597-0.152-0.886-0.233   c0.97-0.591,1.539-2.063,0.486-2.884c-11.471-8.927-23.009-17.109-33.122-27.423c4.293-0.334,8.564-0.37,12.778-0.152   c-0.297,0.334-0.387,0.847,0.021,1.274c12.762,13.315,26.317,25.026,38.656,37.992   C154.367,113.438,148.411,110.526,141.533,108.496z M122.35,77.89c5.049,0.35,9.978,1.152,14.714,2.403   c-0.772,0.003-1.441,0.948-0.725,1.624c7.854,7.391,15.739,14.75,23.424,22.317c7.246,7.133,13.191,15.561,20.399,22.626   c1.472,4.519,2.908,9.507,3.945,14.523C171.702,114.656,143.388,97.193,122.35,77.89z M183.474,166.147   c-0.486-10.317-2.692-19.978-6.774-28.444c1.848,2.6,3.645,5.262,5.347,8.041c0.654,1.068,2.102,1.034,2.928,0.384   C186.124,153.768,186.063,161.04,183.474,166.147z" fill="#f00a75"/></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+                        </svg>    
+                    </div>
+
+                    <h3>Okay, fill the configuration settings specified below:</h3>
+                    <ul id="list5">
+
+                        <li>
+                            <label class="labels" for="accent-color">Select accent-color:</label>
+                           <input class="color-inputs" id="setting-accent" name="accent-color">
+                        </li>
+                        <li>
+                            <label class="labels" for="textcolor">Select Text-Color:</label>
+                            <input class="color-inputs" name="textcolor" id="setting-textcolor">
+                        </li>
+                        <li>
+                            <label class="labels" for="toolbar">Select Toolbar-Color:</label>
+                            <input class="color-inputs" name="toolbar" id="setting-toolbarcolor">
+                        </li>
+                        <li>
+                            <label class="labels" for="toolbartext">Select ToolbarText-Color:</label>
+                            <input class="color-inputs" name="toolbartext" id="setting-toolbartextcolor">
+                        </li>
+                        <li>
+                            <label class="labels" for="tabtextcolor">Select TabText-Color:</label>
+                            <input class="color-inputs" name="tabtextcolor" id="setting-tabtextcolor">
+                        </li>
+                    </ul>
+
+                    <button id='ok'>Ok</button>
+
+                </div>
+                
+            </div>
+
+            <div class="final-footer">
+                <input type="submit" value="Submit" id='submit'>
+                <div id="info-credit" class="tooltip">
+                    <span class="tooltiptext">Thanks to unsplash.com, flaticon.com, openweathermap.org and theysaidso.com</span>
+                    <svg width='16' height='16' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 23.625 23.625" style="enable-background:new 0 0 23.625 23.625;" xml:space="preserve" width="512px" height="512px"><g>
+                        <path d="M11.812,0C5.289,0,0,5.289,0,11.812s5.289,11.813,11.812,11.813s11.813-5.29,11.813-11.813   S18.335,0,11.812,0z M14.271,18.307c-0.608,0.24-1.092,0.422-1.455,0.548c-0.362,0.126-0.783,0.189-1.262,0.189   c-0.736,0-1.309-0.18-1.717-0.539s-0.611-0.814-0.611-1.367c0-0.215,0.015-0.435,0.045-0.659c0.031-0.224,0.08-0.476,0.147-0.759   l0.761-2.688c0.067-0.258,0.125-0.503,0.171-0.731c0.046-0.23,0.068-0.441,0.068-0.633c0-0.342-0.071-0.582-0.212-0.717   c-0.143-0.135-0.412-0.201-0.813-0.201c-0.196,0-0.398,0.029-0.605,0.09c-0.205,0.063-0.383,0.12-0.529,0.176l0.201-0.828   c0.498-0.203,0.975-0.377,1.43-0.521c0.455-0.146,0.885-0.218,1.29-0.218c0.731,0,1.295,0.178,1.692,0.53   c0.395,0.353,0.594,0.812,0.594,1.376c0,0.117-0.014,0.323-0.041,0.617c-0.027,0.295-0.078,0.564-0.152,0.811l-0.757,2.68   c-0.062,0.215-0.117,0.461-0.167,0.736c-0.049,0.275-0.073,0.485-0.073,0.626c0,0.356,0.079,0.599,0.239,0.728   c0.158,0.129,0.435,0.194,0.827,0.194c0.185,0,0.392-0.033,0.626-0.097c0.232-0.064,0.4-0.121,0.506-0.17L14.271,18.307z    M14.137,7.429c-0.353,0.328-0.778,0.492-1.275,0.492c-0.496,0-0.924-0.164-1.28-0.492c-0.354-0.328-0.533-0.727-0.533-1.193   c0-0.465,0.18-0.865,0.533-1.196c0.356-0.332,0.784-0.497,1.28-0.497c0.497,0,0.923,0.165,1.275,0.497   c0.353,0.331,0.53,0.731,0.53,1.196C14.667,6.703,14.49,7.101,14.137,7.429z" fill="#cc375a"/></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+                    </svg>
+                </div>
+            </div>
+            
+        </div> <!--container ends-->
+            
+  
+    <script language="JavaScript" type="text/javascript" src="../assets/js/jquery-3.3.1.min.js"></script>
+    <script src='../assets/js/spectrum.js'></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="options.js"></script>
+</body>
+</html>
