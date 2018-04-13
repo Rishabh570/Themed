@@ -1,0 +1,9 @@
+body {
+    filter: invert(100%);
+    background-color: #000000fd;
+    -webkit-filter: invert(1);
+}
+/* img {
+    filter: invert(0);
+    -webkit-filter: invert(0);
+} */

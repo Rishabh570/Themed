@@ -1,0 +1,4 @@
+body {
+    background: url('/assets/funny.jpg') fixed no-repeat;
+    background-size: cover;
+}
