@@ -157,16 +157,15 @@ $('#key2').change(function() {
 
 // ##############################################################################
 
-
 // Custom theme confirmation ###################################################################
 $('#ok').click(function () {
     flag=1;
     console.log(`flag is: ${flag}\n`)
     console.log('sending background script OKAYED from options.js\n')
+
+    // Sends signal to background script, turns flag_custom ON
     var myPort = browser.runtime.connect();
     myPort.postMessage({signal: "on"});
-    
-    $('#clear').css('display', 'block');
 })
 
 $('#clear').click(function() {
@@ -175,8 +174,6 @@ $('#clear').click(function() {
     console.log(`sending background script OFF from options.js\n`)
     var myPort = browser.runtime.connect();
     myPort.postMessage({signal: "off"});
-
-    $('#clear').fadeOut();
 })
 
 //###############################################################################################
@@ -341,5 +338,3 @@ submit.addEventListener("click", storeSettings);
 // On opening the options page, fetch stored settings and update the UI with them.
 const gettingStoredSettings = browser.storage.local.get();
 gettingStoredSettings.then(updateUI, onError);
-
-// browser.runtime.onConnect.addListener(connected);

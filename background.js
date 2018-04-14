@@ -837,7 +837,7 @@ function fn() {
     }
 
 
-    // CUSTOM THEME SET OPERATION (1ST PRIORITY)
+    // CUSTOM THEME SET OPERATION (1ST PRIORITY) ######################################################
     function connected(p) {
         console.log("inside on connect listener\n");
         customThemeConfirm = p;
@@ -1285,13 +1285,15 @@ function fn() {
         var check_setting = changes["setting"].newValue;
         var check_keys = changes["extra_keys"].newValue;
 
-        if(flag_custom == true) {
+        if(flag_custom === true) {
             console.log("going to execute custom Theme\n");
-            // It's a fix that ensures DaN doesn't render night theme when Custom mode
-            // is ON
+
+            // It's a fix that ensures DaN doesn't render ######################
+            // is ON night theme when Custom mode ##############################
             revertNightMode();
             browser.tabs.onUpdated.removeListener(renderNightMode);
             // ##################################################################
+            
             executeCustomTheme(check_setting);
             return;
         }else {
@@ -1307,12 +1309,13 @@ function fn() {
         // If weather theme is enabled then it will get rendered (2ND PRIORITY)
         if(check_weather && !flag_custom) {
             flag_weather = true;
-            
-            // It's a fix that ensures DaN doesn't render night theme when Weather mode
-            // is ON
+
+            // It's a fix that ensures DaN doesn't render ######################
+            // is ON night theme when Weather mode #############################
             revertNightMode();
             browser.tabs.onUpdated.removeListener(renderNightMode);
             // ##################################################################
+
             browser.alarms.onAlarm.addListener(executeWeatherTheme);
             browser.alarms.create("executeWeatherTheme", {periodInMinutes: 15});
             executeWeatherTheme();

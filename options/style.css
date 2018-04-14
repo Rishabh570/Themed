@@ -219,7 +219,7 @@
     margin-bottom: 1em;
 }
 #clear {
-    display: none;
+    display: block;
     width: 80px;
     height: 33px;
     margin: auto;
