@@ -4,7 +4,7 @@ function fn() {
     var natureTheme = {
         "first" : {
             "images": {
-            "headerURL": "assets/earth-a.png"
+            "headerURL": "assets/images/earth-a.png"
         },
         "colors": {
             "textcolor": "white",
@@ -21,7 +21,7 @@ function fn() {
         },
     "second" : {
         "images": {
-            "headerURL": "assets/nature33.jpg"
+            "headerURL": "assets/images/nature33.jpg"
         },
         "colors": {
             "accentcolor": "rgba(37, 27, 26, 0.466)",
@@ -38,7 +38,7 @@ function fn() {
         },
     "third": {
         "images": {
-            "headerURL": "assets/nature44.jpg"
+            "headerURL": "assets/images/nature44.jpg"
         },
         "colors": {
             "accentcolor": "rgb(19, 50, 96)",
@@ -56,7 +56,7 @@ function fn() {
         },
     "fourth" : {
         "images": {
-            "headerURL": "assets/nature55.jpg"
+            "headerURL": "assets/images/nature55.jpg"
         },
         "colors": {
             "accentcolor": "rgb(73, 110, 173)",
@@ -73,7 +73,7 @@ function fn() {
         },
     "fifth" : {
         "images": {
-            "headerURL": "assets/nature22.jpg"
+            "headerURL": "assets/images/nature22.jpg"
         },
         "colors": {
             "accentcolor": "#111111",
@@ -93,7 +93,7 @@ function fn() {
     var animalsThemes = {
         "first" : {
             "images": {
-                "headerURL": "assets/owl2.jpg"
+                "headerURL": "assets/images/owl2.jpg"
             },
             "colors": {
                 "textcolor": "black",
@@ -112,7 +112,7 @@ function fn() {
         },
         "second" : {
             "images": {
-                "headerURL": "assets/animals11.jpg"
+                "headerURL": "assets/images/animals11.jpg"
             },
             "colors": {
                 "accentcolor": "rgba(156, 123, 92)",
@@ -133,7 +133,7 @@ function fn() {
         },
         "third" : {
             "images": {
-                "headerURL": "assets/animal22.jpg"
+                "headerURL": "assets/images/animal22.jpg"
             },
             "colors": {
                 "accentcolor": "#111111",
@@ -152,7 +152,7 @@ function fn() {
         },
         "fourth" : {
             "images": {
-                "headerURL": "assets/animal44.jpg"
+                "headerURL": "assets/images/animal44.jpg"
             },
             "colors": {
                 "accentcolor": "rgb(241, 245, 249)",
@@ -170,7 +170,7 @@ function fn() {
         },
         "fifth" : {
             "images": {
-                "headerURL": "assets/animal55.jpg"
+                "headerURL": "assets/images/animal55.jpg"
             },
             "colors": {
                 "accentcolor": "rgb(3, 3, 3)",
@@ -193,7 +193,7 @@ function fn() {
     var plainThemes = {
         "first" : {
             "images": {
-                "headerURL": "assets/clear1.jpg"
+                "headerURL": "assets/images/clear1.jpg"
             },
             "colors": {
                 "accentcolor": "rgb(3, 3, 3)",
@@ -212,7 +212,7 @@ function fn() {
         },
         "second" : {
             "images": {
-                "headerURL": "assets/pattern2.jpg"
+                "headerURL": "assets/images/pattern2.jpg"
             },
             "colors": {
                 "toolbar_text": "rgb(161, 228, 248)",
@@ -231,7 +231,7 @@ function fn() {
         },
         "third" : {
             "images": {
-                "headerURL": "assets/pattern3.jpg"
+                "headerURL": "assets/images/pattern3.jpg"
             },
             "colors": {
                 "accentcolor": "rgb(3, 3, 3)",
@@ -251,7 +251,7 @@ function fn() {
         },
         "fourth" : {
             "images": {
-                "headerURL": "assets/pattern4.jpg"
+                "headerURL": "assets/images/pattern4.jpg"
             },
             "colors": {
                 "accentcolor": "rgb(3, 3, 3)",
@@ -271,7 +271,7 @@ function fn() {
         },
         "fifth" : {
             "images": {
-                "headerURL": "assets/pattern5.jpg"
+                "headerURL": "assets/images/pattern5.jpg"
             },
             "colors": {
                 "accentcolor": "rgb(3, 3, 3)",
@@ -294,7 +294,7 @@ function fn() {
     var patternsThemes = {
         "first" : {
             "images": {
-                "headerURL": "assets/patterns10.jpg"
+                "headerURL": "assets/images/patterns10.jpg"
             },
             "colors": {
                 "accentcolor": "rgb(3, 3, 3)",
@@ -313,7 +313,7 @@ function fn() {
         },
         "second" : {
             "images": {
-                "headerURL": "assets/patterns20.jpg"
+                "headerURL": "assets/images/patterns20.jpg"
             },
             "colors": {
                 "accentcolor": "rgb(3, 3, 3)",
@@ -332,7 +332,7 @@ function fn() {
         },
         "third" : {
             "images": {
-                "headerURL": "assets/patterns30.jpg"
+                "headerURL": "assets/images/patterns30.jpg"
             },
             "colors": {
                 "accentcolor": "rgb(3, 3, 3)",
@@ -351,7 +351,7 @@ function fn() {
         },
         "fourth" : {
             "images": {
-                "headerURL": "assets/patterns40.jpg"
+                "headerURL": "assets/images/patterns40.jpg"
             },
             "colors": {
                 "accentcolor": "rgb(3, 3, 3)",
@@ -370,7 +370,7 @@ function fn() {
         },
         "fifth" : {
             "images": {
-                "headerURL": "assets/patterns50.jpg"
+                "headerURL": "assets/images/patterns50.jpg"
             },
             "colors": {
                 "accentcolor": "rgb(3, 3, 3)",
@@ -392,7 +392,7 @@ function fn() {
     var graffitiThemes = {
         "first" : {
             "images": {
-                "headerURL": "assets/graffiti11.jpg"
+                "headerURL": "assets/images/graffiti11.jpg"
             },
             "colors": {
                 "accentcolor": "rgb(3, 3, 3)",
@@ -411,7 +411,7 @@ function fn() {
         },
         "second" : {
             "images": {
-                "headerURL": "assets/graffiti22.jpg"
+                "headerURL": "assets/images/graffiti22.jpg"
             },
             "colors": {
                 "accentcolor": "rgb(3, 3, 3)",
@@ -430,7 +430,7 @@ function fn() {
         },
         "third" : {
             "images": {
-                "headerURL": "assets/graffiti34.jpg"
+                "headerURL": "assets/images/graffiti34.jpg"
             },
             "colors": {
                 "accentcolor": "rgb(3, 3, 3)",
@@ -449,7 +449,7 @@ function fn() {
         },
         "fourth" : {
             "images": {
-                "headerURL": "assets/graffiti44.jpg"
+                "headerURL": "assets/images/graffiti44.jpg"
             },
             "colors": {
                 "accentcolor": "rgb(3, 3, 3)",
@@ -468,7 +468,7 @@ function fn() {
         },
         "fifth" : {
             "images": {
-                "headerURL": "assets/graffiti55.jpg"
+                "headerURL": "assets/images/graffiti55.jpg"
             },
             "colors": {
                 "accentcolor": "rgb(3, 3, 3)",
@@ -491,7 +491,7 @@ function fn() {
     var nightThemes = {
         "first" : {
             "images": {
-                "headerURL": "assets/stars3.jpg"
+                "headerURL": "assets/images/stars3.jpg"
             },
             "colors": {
                 "textcolor": "white",
@@ -514,7 +514,7 @@ function fn() {
     var privateThemes = {
         "first" : {
             "images": {
-            "headerURL": "assets/private1.jpg"
+            "headerURL": "assets/images/private1.jpg"
         },
         "colors": {
             "accentcolor": "rgba(0, 0, 0, 0.671)",
@@ -531,7 +531,7 @@ function fn() {
         },
         "second" : {
             "images": {
-                "headerURL": "assets/private2.jpg"
+                "headerURL": "assets/images/private2.jpg"
             },
             "colors": {
                 "accentcolor": "rgba(12, 21, 26)",
@@ -548,7 +548,7 @@ function fn() {
         },
     "third" : {
         "images": {
-            "headerURL": "assets/private3.jpg"
+            "headerURL": "assets/images/private3.jpg"
             },
         "colors": {
             "accentcolor": "rgb(3,3,3)",
@@ -565,7 +565,7 @@ function fn() {
     },
     "fourth" : {
         "images": {
-            "headerURL": "assets/private4.jpg"
+            "headerURL": "assets/images/private4.jpg"
         },
         "colors": {
             "accentcolor": "rgb(0, 0, 0)",
@@ -582,7 +582,7 @@ function fn() {
     },
     "fifth" : {
         "images": {
-            "headerURL": "assets/private5.jpg"
+            "headerURL": "assets/images/private5.jpg"
         },
         "colors": {
             "accentcolor": "rgb(0, 0, 0)",
@@ -602,7 +602,7 @@ function fn() {
     var weatherThemes = {
         "clear" : {
             "images": {
-                "headerURL": "assets/clear1.jpg"
+                "headerURL": "assets/images/clear1.jpg"
             },
             "colors": {
                 "accentcolor": "lightblue",
@@ -618,7 +618,7 @@ function fn() {
             },
         "clouds" : {
             "images": {
-                "headerURL": "assets/clouds1.jpg"
+                "headerURL": "assets/images/clouds1.jpg"
             },
             "colors": {
                 "accentcolor": "lightblue",
@@ -634,7 +634,7 @@ function fn() {
         },
         "rain" : {
             "images": {
-                "headerURL": "assets/rain.jpg"
+                "headerURL": "assets/images/rain.jpg"
             },
             "colors": {
                 "accentcolor": "blue",
@@ -650,7 +650,7 @@ function fn() {
             },
         "smoke" : {
             "images": {
-                "headerURL": "assets/smoke.jpg"
+                "headerURL": "assets/images/smoke.jpg"
             },
             "colors": {
                 "accentcolor": "lightblue",
@@ -667,7 +667,7 @@ function fn() {
             },
         "haze" : {
             "images": {
-                "headerURL": "assets/haze.jpg"
+                "headerURL": "assets/images/haze.jpg"
             },
             "colors": {
                 "accentcolor": "lightblue",
@@ -683,7 +683,7 @@ function fn() {
             },
         "mist" : {
             "images": {
-                "headerURL": "assets/mist.jpg"
+                "headerURL": "assets/images/mist.jpg"
             },
             "colors": {
                 "accentcolor": "lightblue",
@@ -700,7 +700,7 @@ function fn() {
             },
         "drizzle" : {
             "images": {
-                "headerURL": "assets/drizzle.jpg"
+                "headerURL": "assets/images/drizzle.jpg"
             },
             "colors": {
                 "accentcolor": "lightblue",
@@ -717,7 +717,7 @@ function fn() {
         },
         "snow" : {
             "images": {
-                "headerURL": "assets/snow.jpg"
+                "headerURL": "assets/images/snow.jpg"
             },
             "colors": {
                 "accentcolor": "aqua",
@@ -734,7 +734,7 @@ function fn() {
         },
         "thunderstorm" : {
             "images": {
-                "headerURL": "assets/thunderstorm.jpg"
+                "headerURL": "assets/images/thunderstorm.jpg"
             },
             "colors": {
                 "accentcolor": "rgb(73, 72, 115)",
@@ -753,7 +753,7 @@ function fn() {
     //########################### THEME TO SHOW IN HEADER OF TAB TO MATCH THE QUOTE THEME IMAGE ##################
     var quoteComplementaryTheme = {
         "images": {
-            "headerURL": "assets/haze1.jpg"
+            "headerURL": "assets/images/haze1.jpg"
         },
         "colors": {
             "accentcolor": "lightblue",
@@ -1040,7 +1040,7 @@ function fn() {
 
             const theme = {
                 "images": {
-                    "headerURL": "assets/clear1.jpg"
+                    "headerURL": "assets/images/clear1.jpg"
                 },
                 "colors": {
                     "accentcolor": `${themeArray[0]}`,

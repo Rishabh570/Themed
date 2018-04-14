@@ -27,15 +27,15 @@ const setting_toolbarcolor = document.getElementById('setting-toolbarcolor')
 const setting_toolbartextcolor = document.getElementById('setting-toolbartextcolor')
 const setting_tabtextcolor = document.getElementById('setting-tabtextcolor')
 
-
-
+// GLOBAL VARIABLES
 var category, flag, customThemeSignal;
 var interval = 15; // variable to capture user's input for automatic theme transition
 var key1='', key2='';  // Weather mode extra API keys listeners
 
 
 
-// #################### SPECTRUM.JS COLORPICKER ################################################
+// #################### SPECTRUM.JS COLORPICKER ##################################
+
 $("#setting-accent").spectrum({
     color: "",
     preferredFormat: "rgb",
@@ -96,7 +96,9 @@ $("#setting-tabtextcolor").spectrum({
 
 });
 
-//######################################################################################################
+//################################################################################
+
+// ################### THEME CHANGE FREQUENCY SLIDER UI ##########################
 
 slider.oninput = function() {
     if(!prevent.checked) {
@@ -113,6 +115,10 @@ prevent.addEventListener("click", function() {
     }
 })
 
+//################################################################################
+
+//#################### QUOTES MODE OPTIONS TRANSITION ############################
+
 $('#quote').click(function() {
     if($(this).prop('checked')) {
         console.log('quote checked\n')
@@ -125,6 +131,9 @@ $('#quote').click(function() {
         $('.quote-options').slideToggle();
     }
 })
+//################################################################################
+
+// #################### WEATHER MODE OPTIONS TRANSITION ###########################
 
 $('#weather').click(function() {
     if($(this).prop('checked')) {
@@ -137,12 +146,22 @@ $('#weather').click(function() {
         $('.container5').delay(400).slideToggle();
     }
 })
+//################################################################################
 
-// #################### Weather mode options show/hide ###########################
+//#################### CUSTOM THEME GENERATOR INTERACTIONS #######################
+
+// When CUSTOMIZE button is clicked
 $('#customize-button').click(function() {
     $('.part1').slideToggle();
     $('.settings').delay(400).slideToggle();
 })
+
+// When back arrow is clicked in custom theme UI
+$('#back').click(function () {
+    $('.settings').slideToggle();
+    $('.part1').delay(400).slideToggle();
+})
+//################################################################################
 
 // ################# Handle weather mode API Keys ###############################
 
@@ -154,10 +173,11 @@ $('#key2').change(function() {
     key2 = $(this).val();
     console.log(`key2 has value ${key2}\n`)
 })
+//################################################################################
 
-// ##############################################################################
+// ######################## Custom theme confirmation ############################
 
-// Custom theme confirmation ###################################################################
+// CONFIRMS CUSTOM THEME CHOICE
 $('#ok').click(function () {
     flag=1;
     console.log(`flag is: ${flag}\n`)
@@ -168,21 +188,19 @@ $('#ok').click(function () {
     myPort.postMessage({signal: "on"});
 })
 
+// RESETS CUSTOM THEME
 $('#clear').click(function() {
     flag=0;
     console.log(`flag turned off, it is now ${flag}\n`)
     console.log(`sending background script OFF from options.js\n`)
+
+    // Sends signal to background script, turns flag_custom OFF
     var myPort = browser.runtime.connect();
     myPort.postMessage({signal: "off"});
 })
+//################################################################################
 
-//###############################################################################################
-
-
-$('#back').click(function () {
-    $('.settings').slideToggle();
-    $('.part1').delay(400).slideToggle();
-})
+//####################### STORES SETTINGS TO STORAGE #############################
 
 // ACTUAL STORAGE OF USER PREFERENCES HAPPENS HERE
 function storeSettings() {
@@ -272,16 +290,16 @@ function storeSettings() {
         }
     );
 }
+//################################################################################
 
-// Displays error message
+//########################## Displays error message ##############################
 function onError(e) {
     console.error(e);
 }
-
+//################################################################################
 
 /*
-Update the options UI with the settings values retrieved from storage,
-or the default settings if the stored settings are empty.
+Update the options UI with the settings values retrieved from storage
 */
 function updateUI(restoredSettings) {
     var category_status = restoredSettings.category;

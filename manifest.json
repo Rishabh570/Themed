@@ -4,14 +4,17 @@
     "version": "1.0",
     "description": "Get themed however you want...!",
     "icons": {
-      "48": "icons/icon.png"
+      "16": "assets/icons/icon16.png",
+      "32": "assets/icons/icon32.png",
+      "64": "assets/icons/icon64.png",
+      "128": "assets/icons/icon128.png"
     },
     "background": {
         "scripts": ["background.js"]
     },
     "browser_action": {
         "default_title": "Themed",
-        "default_icon": "icons/icon.png",
+        "default_icon": "assets/icons/icon32.png",
         "browser_style": true
     },
     "options_ui": {
@@ -37,6 +40,11 @@
             "default": "Ctrl+Shift+V"
             },
             "description": "Send a 'next-theme' event"
+        },
+        "_execute_browser_action": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+M"
+            }
         }
     }
 }

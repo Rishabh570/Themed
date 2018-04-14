@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Merienda');
+/* @import url('https://fonts.googleapis.com/css?family=Merienda'); */
 
 #quote-content {
     width: 20%;
@@ -6,7 +6,7 @@
     margin: auto 0;
     padding: 30px;
     background: #2cbeeb79;
-    font-family: 'Merienda', cursive;
+    font-family: 'Luckiest Guy', cursive;
     font-size: 1.9rem;
     text-align: center;
     font-weight: 800;
