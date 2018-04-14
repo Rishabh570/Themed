@@ -783,12 +783,10 @@ function fn() {
     function startThemeTransition() {
         console.log("inside theme transition function\n");
         if(flag_weather || flag_quotes != "blank" || flag_private || flag_dan || flag_custom) {
-            console.log("Cannot transition themes, some Modes/Special Modes are enabled..\n");
             return;
         }else {
             currentTheme = theme_choice_global;
         }
-        console.log(`current theme choice is ${currentTheme}`);
         var tickets = ["first", "second", "third", "fourth", "fifth"];
         var ticket = Math.floor(Math.random()*5);
         var key = tickets[ticket];
@@ -810,7 +808,6 @@ function fn() {
 
     // Transitions to next theme
     function nextTheme() {
-        console.log("inside next theme\n");
         var tickets = ["first", "second", "third", "fourth", "fifth"];
         var ticket = Math.floor(Math.random()*5);
         var key = tickets[ticket];
@@ -833,10 +830,8 @@ function fn() {
 
     // CUSTOM THEME SET OPERATION (1ST PRIORITY) ######################################################
     function connected(p) {
-        console.log("inside on connect listener\n");
         customThemeConfirm = p;
         customThemeConfirm.onMessage.addListener(function(m) {
-            console.log(`custom theme confirmation: ${m.signal}`);
             if(m.signal == "on") {
                 flag_custom = true;
             }else if(m.signal == "off") {
@@ -902,17 +897,18 @@ function fn() {
                     });
                 }
 
-                function onSuccess(result) {
-                    console.log(`after executeScript success, quote is: ${current_quote};`);
-                }
-                function onError(error) {
-                    console.log(`error occured: ${error};`);
-                }
+                // function onSuccess(result) {
+                //     console.log(`after executeScript success, quote is: ${current_quote};`);
+                // }
+                // function onError(error) {
+                //     console.log(`error occured: ${error};`);
+                // }
 
                 var jsExp = [`var tar = document.getElementById("quote-content"); if(tar!==null) { console.log("DIV EXISTS ALREADY"); tar.innerHTML = "${current_quote}"; }else if(tar===null) { console.log("CREATING DIV"); var d = document.createElement("div"); d.setAttribute("id", "quote-content"); d.innerHTML = "${current_quote}"; document.body.appendChild(d);};`];
                 browser.tabs.executeScript(tabId, {
                     code: jsExp[0]
-                }).then(onSuccess, onError);
+                })
+                // .then(onSuccess, onError);
 
                 browser.tabs.insertCSS(tabId, {
                     file: "assets/css/quotesStyle.css"
@@ -924,7 +920,6 @@ function fn() {
     //################# RENDERS QUOTES THEME TO GOOGLE HOME PAGE ########################
 
     function renderQuotesThemes (quote) {
-        console.log("Entered renderQuotesTheme()\n");
 
         // Updates theme for tab header part only
         browser.theme.update(quoteComplementaryTheme);
@@ -956,8 +951,6 @@ function fn() {
             browser.theme.update(weatherThemes.snow);
         }else if(theme.includes("thunderstorm")) {
             browser.theme.update(weatherThemesthunderstorm);
-        }else {
-            console.log("This is a rare situation to be in. You shouldn't be here!!!");
         }
     }
 
@@ -975,8 +968,6 @@ function fn() {
             renderGraffitiTheme();
         }else if(theme === "animals") {
             renderAnimalsTheme();
-        }else {
-            console.log("This is a rare situation to be in. You shouldn't be here!!!");
         }
     }
 
@@ -996,7 +987,6 @@ function fn() {
 
     //#################### DAY & NIGHT LOGIC ###############################
     function executeDanTheme() {
-        console.log("Inside executeDanTheme()");
         var date = new Date();
         var hours = date.getHours();
 
@@ -1005,7 +995,6 @@ function fn() {
                 if ((hours >= 8) && (hours < 20)) {
                     chooseFromNormal(theme_choice_global);  // Selects the chosen one from CATEGORIES
                 } else {
-                    console.log("inside NIGHT MODE logic...\n");
                     browser.theme.update(nightThemes.first);
                     browser.tabs.onUpdated.addListener(renderNightMode);
                 }
@@ -1013,23 +1002,18 @@ function fn() {
                 chooseFromNormal(theme_choice_global);
             }
         }else if (private_theme_is_active) {
-            console.log("Cannot execute DanTheme, private theme is active\n");
             return;
         }else if (flag_weather) {
-            console.log("executeDanTheme is not allowed. flag_weather is TRUE\n");
             return;
         }else if (flag_quotes != "blank") {
-            console.log("executeDanTheme is not allowed. flag_quotes is TRUE\n");
             return;
         }else if (flag_custom) {
-            console.log("executeDanTheme is not allowed. flag_custom is TRUE\n");
             return;
         }
     }
 
     //###################### THEME RENDERINGs #################################
     function executeCustomTheme(themeArray) {
-        console.log(`in executeCustomTheme, array is: ${themeArray}`);
         if(flag_custom) {
 
             const theme = {
@@ -1050,10 +1034,8 @@ function fn() {
                 }
             };
             browser.theme.update(theme);
-            console.log("custom theme set\n");
             return;
         }else {
-            console.log("flag_custom is OFF!\n");
             return;
         }
     }
@@ -1062,8 +1044,7 @@ function fn() {
     function executeWeatherTheme() {
         if (flag_weather) {
 
-            if (!navigator.geolocation){
-                console.log("Geolocation is not supported in your browser :(");
+            if (!navigator.geolocation) {
                 return;
             }
 
@@ -1071,50 +1052,39 @@ function fn() {
             function success(position) {
                 var latitude  = position.coords.latitude;
                 var longitude = position.coords.longitude;
-                console.log(`lattitude is: ${latitude}, longitude is: ${longitude}`);
                 var default_key = "bd5e378503939ddaee76f12ad7a97608";
                 var url = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&APPID=${default_key}&units=metric`;
-
-                console.log(`extra keys inside executeWeatherTheme() are: ${weather_keys}`);
 
                 fetch(url, {method: "get"})
                 .then( function (response) {
                     if (response.ok) {
-                        console.log("inside response OK");
                         return response.json();
                     }
                     else {
-                        console.log("response is NOT OK, trying with extra key 1\n");
                         fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&APPID=${weather_keys[0]}&units=metric`, {method: "get"})
                         .then(function (response) {
                             if(response.ok) {
                                 return response.json();
                             }else {
-                                console.log("response is again NOT OK, trying with extra key 2\n");
                                 fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&APPID=${weather_keys[1]}&units=metric`, {method: "get"})
                                 .then(function(response) {
                                     if(response.ok) {
                                         return response.json();
-                                    }else {
-                                        console.log("Tried with extra keys also, BAD LUCK :(\n Turn off weather mode and try after some hours probably...");
                                     }
                                 }).then(function(json) {
                                     var weather_res = json.weather[0].main;
-                                    console.log(`weather is: ${weather_res}`);
                                     chooseFromWeatherThemes(weather_res);
                                     return;
                                 });
                             }
                         }).then(function(json) {
                             var weather_res = json.weather[0].main;
-                            console.log(`weather is: ${weather_res}`);
                             chooseFromWeatherThemes(weather_res);
                             return;
                         });
                     }
                 }).then(function(json) {
                     var weather_res = json.weather[0].main;
-                    console.log(`weather is: ${weather_res}`);
                     chooseFromWeatherThemes(weather_res);
                     return;
                 });
@@ -1127,15 +1097,12 @@ function fn() {
 
             navigator.geolocation.getCurrentPosition(success, error);
 
-        }else {
-            console.log("executeWeatherTheme() did not work. flag_weather is FALSE right now!");
         }
     }
 
     function executeQuotesTheme() {
         if (flag_quotes != "blank") {
-            console.log("ABOUT TO MAKE A REQUEST IN EXECUTEQUOTESTHEME\n");
-            console.log(`flag_quotes is: ${flag_quotes}`);
+
             var url = `https://quotes.rest/qod?category=${flag_quotes}`;
             var myHeaders = new Headers({"Accept": "application/json"});
             var myInit = {
@@ -1146,12 +1113,10 @@ function fn() {
             fetch(url, myInit)
             .then( function (response) {
                 if (response.ok) {
-                    console.log("inside response OK of Quotes API");
                     return response.json();
                 }
                 else {
                     var error_message = "Some Error Occured while requesting theysaidso.com :(\n It seems you've hit rate limit of 10 per hour.";
-                    console.log(response.status);
                     return console.log(error_message);
                 }
             }).then(function(json, status) {
@@ -1160,8 +1125,6 @@ function fn() {
                 current_quote = clean_quote;
                 renderQuotesThemes(clean_quote);
             });
-        }else {
-            console.log("Sorry, flag_quotes is turned OFF now!\n");
         }
     }
 
@@ -1220,16 +1183,12 @@ function fn() {
                                 // If flag_dan is FALSE, normal themes will be rendered.
 
         }else if(private_theme_is_active) {
-            console.log("Cannot execute DanTheme, private theme is active\n");
             return;
         }else if(flag_weather) {
-            console.log("executeDanTheme is not allowed. flag_weather is TRUE\n");
             return;
         }else if(flag_quotes != "blank") {
-            console.log("executeDanTheme is not allowed. flag_quotes is TRUE\n");
             return;
         }else if(flag_custom) {
-            console.log("executeDanTheme is not allowed. flag_custom is TRUE\n");
             return;
         }
     }
@@ -1237,7 +1196,7 @@ function fn() {
     function executeOnIncognitoRemove(tabId, removeInfo) {
         var incognitoTabs = 0, incognitoTabsLeft;
 
-        if(!flag_weather && !flag_custom && flag_quotes == "blank") {    // THIS FUNCTION IS ALLOWED TO EXECUTE ONLY IF WEATHER MODE IS OFF
+        if(!flag_weather && !flag_custom && flag_quotes == "blank") {
             if (flag_private) {
                 if (incognito_tabs_list.includes(tabId)) {
                     var index = incognito_tabs_list.indexOf(tabId);
@@ -1250,25 +1209,20 @@ function fn() {
                     }
                 }
             }else {
-                console.log("onIncognitoRemove not executed. flag_private is FALSE");
                 return;
             }
         }else if(private_theme_is_active) {
-            console.log("Cannot execute DanTheme, private theme is active\n");
             return;
         }else if(flag_weather) {
-            console.log("executeDanTheme is not allowed. flag_weather is TRUE\n");
             return;
         }else if(flag_quotes != "blank") {
-            console.log("executeDanTheme is not allowed. flag_quotes is TRUE\n");
             return;
         }else if(flag_custom) {
-            console.log("executeDanTheme is not allowed. flag_custom is TRUE\n");
             return;
         }
     }
 
-    // Triggers corresponding theme functions according to value set in storage
+    // This function gets triggered whenever storage changes #####################
     function handleStorageChange(changes, area) {
         var theme_choice = changes["category"].newValue;
         var check_private = changes["private"].newValue;
@@ -1280,30 +1234,24 @@ function fn() {
         var check_keys = changes["extra_keys"].newValue;
 
         if(flag_custom === true) {
-            console.log("going to execute custom Theme\n");
-
             // It's a fix that ensures DaN doesn't render ######################
             // is ON night theme when Custom mode ##############################
             revertNightMode();
             browser.tabs.onUpdated.removeListener(renderNightMode);
             // ##################################################################
-            
             executeCustomTheme(check_setting);
             return;
-        }else {
-            console.log("flag_custom is FALSE. ok is probably not clicked.\n");
         }
 
-        // Theme_choice is stored in a global variable so that it can be accessed by executeOnIncognitoRemove()
+        // Theme_choice is stored in a global variable so that it can be accessed by other functions in this script
         theme_choice_global = theme_choice;
 
-        // Stores extra weather keys to global variable
+        // Stores extra weather keys provided by user to global variable
         weather_keys = [check_keys[0], check_keys[1]];
 
         // If weather theme is enabled then it will get rendered (2ND PRIORITY)
         if(check_weather && !flag_custom) {
             flag_weather = true;
-
             // It's a fix that ensures DaN doesn't render ######################
             // is ON night theme when Weather mode #############################
             revertNightMode();
@@ -1323,34 +1271,30 @@ function fn() {
 
         // QUOTES THEME LOGIC (3RD PRIORITY)
         if(check_quotes != "blank" && !flag_custom) {
-            console.log("going to executeQuotesTheme()\n");
             flag_quotes = check_quotes;
-            console.log(`flag_quotes is set in storage change, it is ${flag_quotes}`);
-            // It's a fix that ensures DaN doesn't render night theme when Quotes mode
-            // is ON
+            // It's a fix that ensures DaN doesn't render ###########################
+            // night theme when Quotes mode is ON ###################################
             revertNightMode();
             browser.tabs.onUpdated.removeListener(renderNightMode);
             //########################################################################
             browser.alarms.onAlarm.addListener(executeQuotesTheme);
             browser.alarms.create("executeQuotesTheme", {periodInMinutes: 59});
-            console.log("going for excuteQuotesTheme\n");
             executeQuotesTheme();
             return;
         }else if (check_weather || check_quotes === "blank") {
             flag_quotes = "blank";
             browser.tabs.onUpdated.removeListener(QuotesListener);
-            console.log("QuotesListener listener removed\n");
             browser.alarms.clear("executeQuotesTheme").then(() => {
                 console.log("Quotes alarm turned OFF!\n");
             })
         }
 
-        // Add alarms for DaN theme
+        // Adds alarms for DaN theme if given condition satisfies
         if (check_dan && !flag_custom) {
             flag_dan = true;
             console.log("alarms initiated.");
             browser.alarms.onAlarm.addListener(executeDanTheme);
-            browser.alarms.create("executeDanTheme", {periodInMinutes: 1});
+            browser.alarms.create("executeDanTheme", {periodInMinutes: 5});
         }else if (check_weather || check_quotes || !check_dan || flag_custom) {
             flag_dan = false;
             revertNightMode();
@@ -1360,6 +1304,7 @@ function fn() {
             })
         }
 
+        // Adds listeners for private theme if given condition satisfies
         if(check_private && !flag_custom) {
             flag_private = true;
             browser.tabs.onCreated.addListener(executePrivateTheme);
@@ -1384,7 +1329,6 @@ function fn() {
             console.log(`theme will transition after every ${check_interval} minutes`)
             startThemeTransition();
         }else if(flag_dan && flag_private && check_interval === "infinite") {
-            // check_interval = "infinite";
             browser.alarms.clear("startThemeTransition").then(() => {
                 console.log("theme transition alarm is turned OFF\n");
             })
@@ -1417,7 +1361,7 @@ function fn() {
         browser.runtime.openOptionsPage();
     }
 
-    //############# STORES INITIAL VALUES IN STORAGE (JUST TO OUTPUT A DEFAULT THEME FOR First START)###############
+    //############# STORES INITIAL VALUES IN STORAGE (JUST TO OUTPUT A DEFAULT THEME FOR First/Initial RUN)###############
     browser.storage.local.set(
         {
             "category": "natural",
@@ -1433,7 +1377,7 @@ function fn() {
 
     //###################### EVENT LISTENERS #################################
 
-    // Triggers at the very start to give flag_private and flag_dan
+    // Triggers at the very start to give global variable
     // appropriate values
     browser.storage.local.get().then((storedConfig) => {
         console.log("Inside storage.local.get()... IT ran before storage.onUpdated!!!");
@@ -1442,15 +1386,16 @@ function fn() {
         flag_weather = storedConfig.weather;
         flag_quotes = storedConfig.quote_type;
 
-        // Theme_choice is stored in a global variable so that it can be accessed by executeOnIncognitoRemove()
+        // Theme_choice is stored in a global variable so that it can be accessed other functions in this script
         theme_choice_global = storedConfig.category;
 
-        executePrivateTheme();  // It is called because it's root function
+        executePrivateTheme();  // It is called because it's the main function which then diverges to executeDanTheme()
+                                // which then diverges to chooseFromNormal() based on conditions.
     })
 
     // Listen for commands
     browser.commands.onCommand.addListener(function(command) {
-        if (command == "next-theme") {
+        if (command === "next-theme") {
             console.log("Moving on to the next theme\n");
             nextTheme();
         }
@@ -1462,6 +1407,7 @@ function fn() {
     // Triggers when someone clicks the browser action
     browser.browserAction.onClicked.addListener(handleClick);
 
+    // Adds listener to connect event
     browser.runtime.onConnect.addListener(connected);
 }
 
