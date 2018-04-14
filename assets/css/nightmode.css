@@ -1,6 +1,6 @@
 body {
     filter: invert(100%);
-    background-color: #00000065;
+    background-color: #000000;
     -webkit-filter: invert(100%);
 }
 

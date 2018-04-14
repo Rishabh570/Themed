@@ -100,6 +100,8 @@ $("#setting-tabtextcolor").spectrum({
 
 // ################### THEME CHANGE FREQUENCY SLIDER UI ##########################
 
+// "interval" stores value according to slider value and stores it if "prevent"
+// is not checked otherwise "infinite" gets stored in storage
 slider.oninput = function() {
     if(!prevent.checked) {
         freq_value.innerHTML = this.value;  // this shows minutes in options page in real time
@@ -107,9 +109,10 @@ slider.oninput = function() {
     interval = parseInt(this.value);  // interval variable is set to the minutes, will be used in transition logic
 }
 
+// This is for user only, doesn't effect "interval" and hence storage
 prevent.addEventListener("click", function() {
     if(prevent.checked) {
-        freq_value.innerHTML = 'infinite'
+        freq_value.innerHTML = "infinite";
     }else {
         freq_value.innerHTML = interval;
     }
@@ -123,10 +126,10 @@ $('#quote').click(function() {
     if($(this).prop('checked')) {
         console.log('quote checked\n')
         $('.weather-mode').slideToggle();
-        $('.quote-options').delay(400).slideToggle("slow");
+        $('.quote-options').delay(400).slideToggle();
         $('.container5').fadeOut();
     }else {
-        $('.weather-mode').delay(400).slideToggle("slow");
+        $('.weather-mode').delay(400).slideToggle();
         $('.container5').delay(400).fadeIn()
         $('.quote-options').slideToggle();
     }
@@ -138,11 +141,11 @@ $('#quote').click(function() {
 $('#weather').click(function() {
     if($(this).prop('checked')) {
         $('.weather-options').delay(400).slideToggle();
-        $('.quotes-mode').slideToggle();
+        $('.quote-mode').slideToggle();
         $('.container5').slideToggle();
     }else {
         $('.weather-options').slideToggle();
-        $('.quotes-mode').delay(400).slideToggle();
+        $('.quote-mode').delay(400).slideToggle();
         $('.container5').delay(400).slideToggle();
     }
 })
@@ -210,6 +213,7 @@ function storeSettings() {
     $('.settings').slideUp();
     $('.part1').delay(400).slideDown();
 
+    // Storing normal theme category chosen by user
     if (natural.checked) {
         category = natural.value;
     }else if (animals.checked) {
@@ -222,22 +226,26 @@ function storeSettings() {
         category = graffiti.value;
     }
 
+    // Storing user preferences for private and DaN mode
     if (private.checked) {
         is_private = true;
     }
     if (dan.checked) {
         is_dan = true;
     }
+    // Storing user preference for weather mode
     if (weather.checked) {
         is_weather = true;
     }
 
+    // Storing theme change interval user input
     if(!prevent.checked) {
         automatically_change_after = interval
     }else {
         automatically_change_after = "infinite";  // flag of "infinite" means theme won't change automatically
     }
 
+    // Storing quote mode user input
     if (quote.checked) {
         if (inspire.checked) {
             quote_type = "inspire";
@@ -260,6 +268,7 @@ function storeSettings() {
         quote_type = "blank";   
     }
 
+    // Storing custom theme color values entered by user
     if(flag===1) {
         s2 = accent_color.value;
         s3 = setting_tabtextcolor.value;
@@ -313,13 +322,6 @@ function updateUI(restoredSettings) {
 
     var target = document.getElementById(category_status);
     var quote_type_target = document.getElementById(quote_type);
-    
-    console.log(`Private is set: ${private_status}`)
-    console.log(`Day and Night is set: ${dan_status}`)
-    console.log(`Weather is set: ${weather_status}`)
-    console.log(`interval is ${check_interval}`)
-    console.log(`quote_type is ${quote_type}`)
-    console.log(`setting inside update UI is ${setting}`)
 
     // Updates the color picker settings
     $("#setting-accent").spectrum("set", `${setting[0]}`)
@@ -335,18 +337,32 @@ function updateUI(restoredSettings) {
     private.checked = private_status;
     dan.checked = dan_status;
     weather.checked = weather_status;
-    freq_value.innerHTML = check_interval;
-    quote_type_target.checked = true;
 
-    if(check_interval != 'infinite') {
+    if (weather_status) {
+        $('.weather-options').show();
+        $('.quote-mode').hide();
+        $('.container5').hide();
+    }
+
+    if (quote_type != "blank") {
+        $('.weather-mode').hide();
+        $('.quote-options').show();
+        $('.container5').hide();
+        quote.checked = true;
+    }
+
+    if(check_interval != "infinite") {
+        prevent.checked = false;
         slider.value = check_interval;
         freq_value.innerHTML = check_interval;
-        prevent.checked = false;
     }else {
-        freq_value.innerHTML = 'infinite'
+        freq_value.innerHTML = "infinite";
         prevent.checked = true;
     }
-    console.log('UI updated\n')
+
+    // Checks the checkbox in quote options which was selected last time
+    quote_type_target.checked = true;
+
 }
 
 

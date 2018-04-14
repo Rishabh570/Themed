@@ -44,7 +44,8 @@
         "_execute_browser_action": {
             "suggested_key": {
                 "default": "Ctrl+Shift+M"
-            }
+            },
+            "description": "open browser action"
         }
     }
 }
