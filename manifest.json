@@ -40,12 +40,6 @@
             "default": "Ctrl+Shift+V"
             },
             "description": "Send a 'next-theme' event"
-        },
-        "_execute_browser_action": {
-            "suggested_key": {
-                "default": "Ctrl+Shift+M"
-            },
-            "description": "open browser action"
         }
     }
 }

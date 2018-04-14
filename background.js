@@ -93,7 +93,7 @@ function fn() {
     var animalsThemes = {
         "first" : {
             "images": {
-                "headerURL": "assets/images/owl2.jpg"
+                "headerURL": "assets/images/animal3.jpg"
             },
             "colors": {
                 "textcolor": "black",
@@ -105,14 +105,13 @@ function fn() {
                 "toolbar_bottom_separator": "darkblue",
                 "toolbar_field": "rgba(224, 255, 255, 0.534)",
                 "toolbar_field_text": "black",
-                // "toolbar_field_border": "darkblue",
                 "toolbar_vertical_separator": "darkblue",
                 "toolbar_top_separator": "darkblue"
             }
         },
         "second" : {
             "images": {
-                "headerURL": "assets/images/animals11.jpg"
+                "headerURL": "assets/images/animals1.jpg"
             },
             "colors": {
                 "accentcolor": "rgba(156, 123, 92)",
@@ -122,18 +121,16 @@ function fn() {
                 "toolbar_field": "rgba(248, 164, 7, 0.267)",
                 "toolbar_field_focus": "rgba(248, 164, 7, 0.267)",
                 "toolbar_field_text": "#111111",
-                // "toolbar_field_border": "gray",
                 "toolbar_field_border": "silver",
                 "toolbar_vertical_separator": "whitesmoke",
                 "toolbar": "rgba(248, 164, 7, 0.24)",
-                // "toolbar_vertical_separator": "whitesmoke",
                 "toolbar_bottom_separator": "whitesmoke",
                 "toolbar_top_separator": "rgba(255, 255, 255, 0.596)"
             }
         },
         "third" : {
             "images": {
-                "headerURL": "assets/images/animal22.jpg"
+                "headerURL": "assets/images/animal2.jpg"
             },
             "colors": {
                 "accentcolor": "#111111",
@@ -152,7 +149,7 @@ function fn() {
         },
         "fourth" : {
             "images": {
-                "headerURL": "assets/images/animal44.jpg"
+                "headerURL": "assets/images/animal4.jpg"
             },
             "colors": {
                 "accentcolor": "rgb(241, 245, 249)",
@@ -160,9 +157,7 @@ function fn() {
                 "textcolor": "#111111",
                 "toolbar_text": "#111111",
                 "toolbar_field_text": "#111111",
-                // "toolbar_field_border": "#111111",
                 "toolbar_field_border": "#111111",
-                // "toolbar_vertical_separator": "#111111",
                 "toolbar_vertical_separator": "#111111",
                 "toolbar_bottom_separator": "#111111",
                 "toolbar_top_separator": "#111111"
@@ -170,7 +165,7 @@ function fn() {
         },
         "fifth" : {
             "images": {
-                "headerURL": "assets/images/animal55.jpg"
+                "headerURL": "assets/images/animal5.jpg"
             },
             "colors": {
                 "accentcolor": "rgb(3, 3, 3)",
@@ -181,7 +176,6 @@ function fn() {
                 "toolbar_field_focus": "rgba(240, 238, 240, 0.768)",
                 "toolbar_field_text": "#111111",
                 "toolbar_field_border": "rgb(41, 243, 22)",
-                // "toolbar_vertical_separator": "rgb(41, 243, 22)",
                 "toolbar_vertical_separator": "rgb(41, 243, 22)",
                 "toolbar_bottom_separator": "rgb(41, 243, 22)",
                 "toolbar_top_separator": "rgb(41, 243, 22)"

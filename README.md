@@ -34,4 +34,10 @@ Well, again no need to have different addon for this purpose.
 
 ### Custom Themes
 
-Nothing seems fine till now? Maybe some customization will make you happy in this case. Period. End of Story!
+Nothing seems fine till now? What about some theme customization. :smiley:
+
+## Shortcuts
+
+- Besides automatic theme transition option, you can change themes manually whenever you want just by <kbd>Ctrl+Shift+V</kbd>.
+
+- Open options page by just clicking the browser action.
