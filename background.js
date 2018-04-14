@@ -610,7 +610,6 @@ function fn() {
                 "tab_text": "#111111",
                 "toolbar_text": "#111111",
                 "toolbar_field_text": "#111111",
-                "toolbar": "rgba(243, 13, 13, 0.37)",
                 "toolbar_top_separator": "green",
                 "toolbar_bottom_separator": "green",
                 "toolbar_vertical_separator": "green",
@@ -627,50 +626,48 @@ function fn() {
                 "tab_text": "#111111",
                 "toolbar_text": "#111111",
                 "toolbar_field_text": "#111111",
-                "toolbar": "rgba(243, 13, 13, 0.37)",
-                "toolbar_top_separator": "green",
-                "toolbar_bottom_separator": "green",
-                "toolbar_vertical_separator": "green",
-                "toolbar_field_border": "green"
+                "toolbar_top_separator": "blue",
+                "toolbar_bottom_separator": "blue",
+                "toolbar_vertical_separator": "blue",
+                "toolbar_field_border": "blue"
             }
         },
         "rain" : {
             "images": {
-                "headerURL": "assets/rain1.jpg"
+                "headerURL": "assets/rain.jpg"
             },
             "colors": {
-                "accentcolor": "lightblue",
-                "textcolor": "#111111",
-                "tab_text": "#111111",
-                "toolbar_text": "#111111",
+                "accentcolor": "blue",
+                "textcolor": "white",
+                "tab_text": "white",
+                "toolbar_text": "white",
                 "toolbar_field_text": "#111111",
-                "toolbar": "rgba(44, 47, 219, 0.219)",
-                "toolbar_top_separator": "grey",
-                "toolbar_bottom_separator": "grey",
-                "toolbar_vertical_separator": "grey",
-                "toolbar_field_border": "grey"
+                "toolbar_top_separator": "blue",
+                "toolbar_bottom_separator": "blue",
+                "toolbar_vertical_separator": "blue",
+                "toolbar_field_border": "blue"
                 }
             },
         "smoke" : {
             "images": {
-                "headerURL": "assets/smoke1.jpg"
+                "headerURL": "assets/smoke.jpg"
             },
             "colors": {
                 "accentcolor": "lightblue",
-                "textcolor": "#111111",
-                "tab_text": "#111111",
-                "toolbar_text": "#111111",
+                "textcolor": "white",
+                "tab_text": "white",
+                "toolbar_text": "white",
                 "toolbar_field_text": "#111111",
-                "toolbar": "rgba(60, 78, 138, 0.37)",
-                "toolbar_top_separator": "rgba(178, 180, 60, 0.445)",
-                "toolbar_bottom_separator": "rgba(178, 180, 60, 0.445)",
-                "toolbar_vertical_separator": "rgba(178, 180, 60, 0.445)",
-                "toolbar_field_border": "rgba(178, 180, 60, 0.445)"
+                "toolbar": "rgba(109, 141, 243, 0.26)",
+                "toolbar_top_separator": "whitesmoke",
+                "toolbar_bottom_separator": "whitesmoke",
+                "toolbar_vertical_separator": "whitesmoke",
+                "toolbar_field_border": "whitesmoke"
                 }
             },
         "haze" : {
             "images": {
-                "headerURL": "assets/haze1.jpg"
+                "headerURL": "assets/haze.jpg"
             },
             "colors": {
                 "accentcolor": "lightblue",
@@ -678,7 +675,6 @@ function fn() {
                 "tab_text": "#111111",
                 "toolbar_text": "#111111",
                 "toolbar_field_text": "#111111",
-                "toolbar": "rgba(247, 156, 247, 0.288)",
                 "toolbar_top_separator": "#111111",
                 "toolbar_bottom_separator": "#111111",
                 "toolbar_vertical_separator": "#111111",
@@ -687,7 +683,7 @@ function fn() {
             },
         "mist" : {
             "images": {
-                "headerURL": "assets/mist1.jpg"
+                "headerURL": "assets/mist.jpg"
             },
             "colors": {
                 "accentcolor": "lightblue",
@@ -695,7 +691,7 @@ function fn() {
                 "tab_text": "#111111",
                 "toolbar_text": "#111111",
                 "toolbar_field_text": "#111111",
-                "toolbar": "rgba(120, 153, 223, 0.308)",
+                "toolbar": "rgba(120, 153, 223, 0.041)",
                 "toolbar_top_separator": "#111111",
                 "toolbar_bottom_separator": "#111111",
                 "toolbar_vertical_separator": "#111111",
@@ -704,15 +700,15 @@ function fn() {
             },
         "drizzle" : {
             "images": {
-                "headerURL": "assets/drizzle1.jpg"
+                "headerURL": "assets/drizzle.jpg"
             },
             "colors": {
                 "accentcolor": "lightblue",
-                "textcolor": "whitesmoke",
-                "tab_text": "whitesmoke",
-                "toolbar_text": "whitesmoke",
-                "toolbar_field_text": "whitesmoke",
-                "toolbar": "",
+                "textcolor": "white",
+                "tab_text": "white",
+                "toolbar_text": "white",
+                "toolbar_field_text": "black",
+                "toolbar": "rgba(7, 226, 255, 0.514)",
                 "toolbar_top_separator": "whitesmoke",
                 "toolbar_bottom_separator": "whitesmoke",
                 "toolbar_vertical_separator": "whitesmoke",
@@ -721,15 +717,15 @@ function fn() {
         },
         "snow" : {
             "images": {
-                "headerURL": "assets/snow1.jpg"
+                "headerURL": "assets/snow.jpg"
             },
             "colors": {
                 "accentcolor": "aqua",
-                "textcolor": "#111111",
-                "tab_text": "#111111",
-                "toolbar_text": "#111111",
+                "textcolor": "black",
+                "tab_text": "black",
+                "toolbar_text": "black",
                 "toolbar_field_text": "#111111",
-                "toolbar": "rgba(21, 98, 199, 0.349)",
+                "toolbar": "rgba(255, 255, 255, 0.755)",
                 "toolbar_top_separator": "#111111",
                 "toolbar_bottom_separator": "#111111",
                 "toolbar_vertical_separator": "#111111",
@@ -738,7 +734,7 @@ function fn() {
         },
         "thunderstorm" : {
             "images": {
-                "headerURL": "assets/thunderstorm1.jpg"
+                "headerURL": "assets/thunderstorm.jpg"
             },
             "colors": {
                 "accentcolor": "rgb(73, 72, 115)",
@@ -746,7 +742,7 @@ function fn() {
                 "tab_text": "white",
                 "toolbar_text": "white",
                 "toolbar_field_text": "#111111",
-                "toolbar": "rgba(21, 98, 199, 0.349)",
+                "toolbar": "rgba(25, 10, 231, 0.042)",
                 "toolbar_top_separator": "#111111",
                 "toolbar_bottom_separator": "#111111",
                 "toolbar_vertical_separator": "#111111",
