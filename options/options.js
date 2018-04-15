@@ -170,11 +170,9 @@ $('#back').click(function () {
 
 $('#key1').change(function() {
     key1 = $(this).val();
-    console.log(`key1 has value ${key1}\n`)
 })
 $('#key2').change(function() {
     key2 = $(this).val();
-    console.log(`key2 has value ${key2}\n`)
 })
 //################################################################################
 
@@ -184,7 +182,6 @@ $('#key2').change(function() {
 $('#ok').click(function () {
     flag=1;
     console.log(`flag is: ${flag}\n`)
-    console.log('sending background script OKAYED from options.js\n')
 
     // Sends signal to background script, turns flag_custom ON
     var myPort = browser.runtime.connect();
@@ -194,8 +191,6 @@ $('#ok').click(function () {
 // RESETS CUSTOM THEME
 $('#clear').click(function() {
     flag=0;
-    console.log(`flag turned off, it is now ${flag}\n`)
-    console.log(`sending background script OFF from options.js\n`)
 
     // Sends signal to background script, turns flag_custom OFF
     var myPort = browser.runtime.connect();
@@ -276,10 +271,8 @@ function storeSettings() {
         s5 = setting_toolbarcolor.value;
         s6 = setting_toolbartextcolor.value;
         var setting_array = [s2,s3,s4,s5,s6];
-        console.log(`setting array is: ${setting_array}`)
     }else {
         var setting_array = [""];
-        console.log(`setting array is: ${setting_array}`)
     }
 
     // Stores extra API Keys in an array

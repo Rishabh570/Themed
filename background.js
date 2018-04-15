@@ -1395,7 +1395,7 @@ function fn() {
 
     // Listen for commands
     browser.commands.onCommand.addListener(function(command) {
-        if (command === "next-theme") {
+        if (command === "next-theme" && !flag_dan && !flag_private && !flag_weather && flag_quotes==="blank" && flag_custom===false) {
             console.log("Moving on to the next theme\n");
             nextTheme();
         }
