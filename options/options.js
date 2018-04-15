@@ -181,7 +181,6 @@ $('#key2').change(function() {
 // CONFIRMS CUSTOM THEME CHOICE
 $('#ok').click(function () {
     flag=1;
-    console.log(`flag is: ${flag}\n`)
 
     // Sends signal to background script, turns flag_custom ON
     var myPort = browser.runtime.connect();

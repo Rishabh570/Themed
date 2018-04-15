@@ -781,7 +781,6 @@ function fn() {
     //################# THEME TRANSITION LOGIC ########################
 
     function startThemeTransition() {
-        console.log("inside theme transition function\n");
         if(flag_weather || flag_quotes != "blank" || flag_private || flag_dan || flag_custom) {
             return;
         }else {
@@ -897,18 +896,10 @@ function fn() {
                     });
                 }
 
-                // function onSuccess(result) {
-                //     console.log(`after executeScript success, quote is: ${current_quote};`);
-                // }
-                // function onError(error) {
-                //     console.log(`error occured: ${error};`);
-                // }
-
                 var jsExp = [`var tar = document.getElementById("quote-content"); if(tar!==null) { console.log("DIV EXISTS ALREADY"); tar.innerHTML = "${current_quote}"; }else if(tar===null) { console.log("CREATING DIV"); var d = document.createElement("div"); d.setAttribute("id", "quote-content"); d.innerHTML = "${current_quote}"; document.body.appendChild(d);};`];
                 browser.tabs.executeScript(tabId, {
                     code: jsExp[0]
                 })
-                // .then(onSuccess, onError);
 
                 browser.tabs.insertCSS(tabId, {
                     file: "assets/css/quotesStyle.css"
@@ -1322,18 +1313,14 @@ function fn() {
 
         // TRANSITION LOGIC
         if(check_interval != "infinite" && !flag_dan && !flag_private) {
-            console.log(`flag_private is: ${flag_private}, flag_dan is: ${flag_dan}`);
-            console.log("Transition alarm initiated!\n");
             browser.alarms.onAlarm.addListener(startThemeTransition);
             browser.alarms.create("startThemeTransition", {periodInMinutes: check_interval});
-            console.log(`theme will transition after every ${check_interval} minutes`)
             startThemeTransition();
         }else if(flag_dan && flag_private && check_interval === "infinite") {
             browser.alarms.clear("startThemeTransition").then(() => {
                 console.log("theme transition alarm is turned OFF\n");
             })
         }
-
 
         if (check_private && !check_dan && !flag_custom) {
             flag_dan = false;
@@ -1350,7 +1337,6 @@ function fn() {
         }else if(!check_dan && !check_private && !flag_custom) {
             flag_dan = false;
             flag_private = false;
-            console.log("All modes disabled. Normal themes rendering");
             chooseFromNormal(theme_choice_global);  // Selects the chosen one from CATEGORIES
         }
     }
@@ -1396,7 +1382,6 @@ function fn() {
     // Listen for commands
     browser.commands.onCommand.addListener(function(command) {
         if (command === "next-theme" && !flag_dan && !flag_private && !flag_weather && flag_quotes==="blank" && flag_custom===false) {
-            console.log("Moving on to the next theme\n");
             nextTheme();
         }
       });
