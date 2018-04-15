@@ -746,7 +746,7 @@ function fn() {
     //########################### THEME TO SHOW IN HEADER OF TAB TO MATCH THE QUOTE THEME IMAGE ##################
     var quoteComplementaryTheme = {
         "images": {
-            "headerURL": "assets/images/haze.jpg"
+            "headerURL": "assets/images/clear1.jpg"
         },
         "colors": {
             "accentcolor": "lightblue",
@@ -780,8 +780,6 @@ function fn() {
     //################# THEME TRANSITION LOGIC ########################
 
     function startThemeTransition() {
-        console.log("inside startThemeTransition()");
-
         if(flag_weather || flag_quotes != "blank" || flag_private || flag_dan || flag_custom) {
             return;
         }else {
@@ -1214,7 +1212,7 @@ function fn() {
         }
     }
 
-    // This function gets triggered whenever storage changes #####################
+    // This function gets triggered whenever storage changes ##################################################################
     function handleStorageChange(changes, area) {
         var theme_choice = changes["category"].newValue;
         var check_private = changes["private"].newValue;
@@ -1225,12 +1223,46 @@ function fn() {
         var check_setting = changes["setting"].newValue;
         var check_keys = changes["extra_keys"].newValue;
 
-        if(flag_custom === true) {
-            // It's a fix that ensures DaN doesn't render ######################
-            // is ON night theme when Custom mode ##############################
+        // REMOVING LISTENERS AND ALARMS BASED ON USER'S NEW INPUT (HE MAY DISABLE PREVIOUSLY ENABLED FEATURE)
+        if(!check_weather) {
+            flag_weather = false;
+            browser.alarms.clear("executeWeatherTheme").then(() => {
+                console.log("Weather alarm is turned OFF\n");
+            })
+        }
+
+        if (check_weather || check_quotes === "blank") {
+            flag_quotes = "blank";
+            browser.tabs.onUpdated.removeListener(QuotesListener);
+            browser.alarms.clear("executeQuotesTheme").then(() => {
+                console.log("Quotes alarm turned OFF!\n");
+            })
+        }
+
+        if (check_weather || check_quotes || !check_dan || flag_custom) {
+            flag_dan = false;
             revertNightMode();
             browser.tabs.onUpdated.removeListener(renderNightMode);
-            // ##################################################################
+            browser.alarms.clear("executeDanTheme").then(() => {
+                console.log("Dan alarm is turned OFF!\n");
+            })
+        }
+
+        if (check_weather || check_quotes || !check_private || flag_custom) {
+            flag_private = false;
+            browser.tabs.onCreated.removeListener(executePrivateTheme);
+            browser.tabs.onUpdated.removeListener(executeOnIncognitoRemove);
+        }
+
+        if(flag_dan && flag_private && check_interval === "infinite") {
+            browser.alarms.clear("startThemeTransition").then(() => {
+                console.log("theme transition alarm is turned OFF\n");
+            })
+        }
+        //##################################################################################################
+
+        // ENABLING ALARMS/LISTENERES BASED ON USER'S NEW INPUT ##############################
+        if(flag_custom === true) {
             executeCustomTheme(check_setting);
             return;
         }
@@ -1244,41 +1276,19 @@ function fn() {
         // If weather theme is enabled then it will get rendered (2ND PRIORITY)
         if(check_weather && !flag_custom) {
             flag_weather = true;
-            // It's a fix that ensures DaN doesn't render ######################
-            // is ON night theme when Weather mode #############################
-            revertNightMode();
-            browser.tabs.onUpdated.removeListener(renderNightMode);
-            // ##################################################################
-
             browser.alarms.onAlarm.addListener(executeWeatherTheme);
             browser.alarms.create("executeWeatherTheme", {periodInMinutes: 15});
             executeWeatherTheme();
             return;
-        }else if(!check_weather) {
-            flag_weather = false;
-            browser.alarms.clear("executeWeatherTheme").then(() => {
-                console.log("Weather alarm is turned OFF\n");
-            })
         }
 
         // QUOTES THEME LOGIC (3RD PRIORITY)
         if(check_quotes != "blank" && !flag_custom) {
             flag_quotes = check_quotes;
-            // It's a fix that ensures DaN doesn't render ###########################
-            // night theme when Quotes mode is ON ###################################
-            revertNightMode();
-            browser.tabs.onUpdated.removeListener(renderNightMode);
-            //########################################################################
             browser.alarms.onAlarm.addListener(executeQuotesTheme);
             browser.alarms.create("executeQuotesTheme", {periodInMinutes: 59});
             executeQuotesTheme();
             return;
-        }else if (check_weather || check_quotes === "blank") {
-            flag_quotes = "blank";
-            browser.tabs.onUpdated.removeListener(QuotesListener);
-            browser.alarms.clear("executeQuotesTheme").then(() => {
-                console.log("Quotes alarm turned OFF!\n");
-            })
         }
 
         // Adds alarms for DaN theme if given condition satisfies
@@ -1287,13 +1297,6 @@ function fn() {
             console.log("alarms initiated.");
             browser.alarms.onAlarm.addListener(executeDanTheme);
             browser.alarms.create("executeDanTheme", {periodInMinutes: 5});
-        }else if (check_weather || check_quotes || !check_dan || flag_custom) {
-            flag_dan = false;
-            revertNightMode();
-            browser.tabs.onUpdated.removeListener(renderNightMode);
-            browser.alarms.clear("executeDanTheme").then(() => {
-                console.log("Dan alarm is turned OFF!\n");
-            })
         }
 
         // Adds listeners for private theme if given condition satisfies
@@ -1301,10 +1304,6 @@ function fn() {
             flag_private = true;
             browser.tabs.onCreated.addListener(executePrivateTheme);
             browser.tabs.onRemoved.addListener(executeOnIncognitoRemove);
-        }else if (check_weather || check_quotes || !check_private || flag_custom) {
-            flag_private = false;
-            browser.tabs.onCreated.removeListener(executePrivateTheme);
-            browser.tabs.onUpdated.removeListener(executeOnIncognitoRemove);
         }
 
         // Changes status of active private theme if user unchecks it while it was running
@@ -1318,10 +1317,6 @@ function fn() {
             browser.alarms.onAlarm.addListener(startThemeTransition);
             browser.alarms.create("startThemeTransition", {periodInMinutes: check_interval});
             startThemeTransition();
-        }else if(flag_dan && flag_private && check_interval === "infinite") {
-            browser.alarms.clear("startThemeTransition").then(() => {
-                console.log("theme transition alarm is turned OFF\n");
-            })
         }
 
         if (check_private && !check_dan && !flag_custom) {
@@ -1342,6 +1337,8 @@ function fn() {
             chooseFromNormal(theme_choice_global);  // Selects the chosen one from CATEGORIES
         }
     }
+
+    //#################################################################################################################################################################
 
     //#################### OPENS OPTIONS PAGE ###############################
 

@@ -104,7 +104,7 @@ $("#setting-tabtextcolor").spectrum({
 // is not checked otherwise "infinite" gets stored in storage
 slider.oninput = function() {
     if(!prevent.checked) {
-        freq_value.innerHTML = "finite";  // this shows minutes in options page in real time
+        freq_value.value = this.value;  // this shows minutes in options page in real time
     }
     interval = parseInt(this.value);  // interval variable is set to the minutes, will be used in transition logic
 }
@@ -112,9 +112,9 @@ slider.oninput = function() {
 // This is for user only, doesn't effect "interval" and hence storage
 prevent.addEventListener("click", function() {
     if(prevent.checked) {
-        freq_value.innerHTML = "infinite";
+        freq_value.value = "infinite";
     }else {
-        freq_value.innerHTML = "finite";
+        freq_value.value = interval;
     }
 })
 
@@ -201,7 +201,7 @@ $('#clear').click(function() {
 // ACTUAL STORAGE OF USER PREFERENCES HAPPENS HERE
 function storeSettings() {
     var is_private=false, is_dan=false, is_weather=false, automatically_change_after, quote_type;
-    var s1, s2, s3, s4, s5, s6;
+    var s2, s3, s4, s5, s6;
 
     $('.settings').slideUp();
     $('.part1').delay(400).slideDown();
@@ -233,7 +233,7 @@ function storeSettings() {
 
     // Storing theme change interval user input
     if(!prevent.checked) {
-        automatically_change_after = interval
+        automatically_change_after = interval;
     }else {
         automatically_change_after = "infinite";  // flag of "infinite" means theme won't change automatically
     }
@@ -345,9 +345,9 @@ function updateUI(restoredSettings) {
     if(check_interval != "infinite") {
         prevent.checked = false;
         slider.value = check_interval;
-        freq_value.innerHTML = "finite";
+        freq_value.value = check_interval;
     }else {
-        freq_value.innerHTML = "infinite";
+        freq_value.value = "infinite";
         prevent.checked = true;
     }
 

@@ -107,6 +107,10 @@
 }
 #freq-value {
     display: inline-block;
+    border-radius: 0.5em;
+    width: 48px;
+    height: 20px;
+    background-color: #e3e3e3;
 }
 
 /*
