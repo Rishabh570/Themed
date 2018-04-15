@@ -8,7 +8,7 @@ function fn() {
         },
         "colors": {
             "textcolor": "white",
-            "accentcolor": "#111111",
+            "accentcolor": "black",
             "tab_text": "white",
             "toolbar": "rgba(161, 168, 167, 0.253)",
             "toolbar_text": "whitesmoke",
@@ -41,7 +41,7 @@ function fn() {
             "headerURL": "assets/images/nature44.jpg"
         },
         "colors": {
-            "accentcolor": "rgb(19, 50, 96)",
+            "accentcolor": "rgb(9, 51, 95)",
             "textcolor": "white",
             "tab_text": "white",
             "toolbar_text": "white",
@@ -96,11 +96,11 @@ function fn() {
                 "headerURL": "assets/images/animal3.jpg"
             },
             "colors": {
-                "textcolor": "black",
-                "accentcolor": "rgb(69, 79, 137)",
-                "tab_text": "black",
+                "textcolor": "white",
+                "accentcolor": "rgb(62, 90, 110, 0.8)",
+                "tab_text": "white",
                 "toolbar": "rgba(18, 234, 241, 0.233)",
-                "toolbar_text": "black",
+                "toolbar_text": "white",
                 "toolbar_field_border": "darkblue",
                 "toolbar_bottom_separator": "darkblue",
                 "toolbar_field": "rgba(224, 255, 255, 0.534)",
@@ -111,10 +111,10 @@ function fn() {
         },
         "second" : {
             "images": {
-                "headerURL": "assets/images/animals1.jpg"
+                "headerURL": "assets/images/animal1.jpg"
             },
             "colors": {
-                "accentcolor": "rgba(156, 123, 92)",
+                "accentcolor": "rgba(173, 163, 128, 0.336)",
                 "tab_text": "whitesmoke",
                 "textcolor": "whitesmoke",
                 "toolbar_text": "whitesmoke",
@@ -194,7 +194,7 @@ function fn() {
                 "tab_text": "yellow",
                 "textcolor": "yellow",
                 "toolbar_text": "gold",
-                "toolbar": "rgba(6, 31, 141, 0.267)",
+                "toolbar": "rgba(24, 67, 255, 0.13)",
                 "toolbar_field": "rgba(9, 213, 228, 0.549)",
                 "toolbar_field_focus": "rgba(9, 213, 228, 0.549)",
                 "toolbar_field_text": "#111111",
@@ -277,7 +277,6 @@ function fn() {
                 "toolbar_field_focus": "rgba(240, 238, 240, 0.768)",
                 "toolbar_field_text": "white",
                 "toolbar_field_border": "white",
-                // "toolbar_vertical_separator": "white",
                 "toolbar_vertical_separator": "white",
                 "toolbar_bottom_separator": "white",
                 "toolbar_top_separator": "white"
@@ -292,17 +291,17 @@ function fn() {
             },
             "colors": {
                 "accentcolor": "rgb(3, 3, 3)",
-                "tab_text": "white",
-                "textcolor": "white",
-                "toolbar_text": "white",
-                "toolbar": "rgba(230, 37, 11, 0.416)",
+                "tab_text": "black",
+                "textcolor": "black",
+                "toolbar_text": "black",
+                "toolbar": "rgba(230, 37, 11, 0.548)",
                 "toolbar_field": "rgba(240, 238, 240, 0.568)",
                 "toolbar_field_focus": "rgba(240, 238, 240, 0.768)",
-                "toolbar_field_text": "white",
-                "toolbar_field_border": "white",
-                "toolbar_vertical_separator": "white",
-                "toolbar_bottom_separator": "white",
-                "toolbar_top_separator": "white"
+                "toolbar_field_text": "#111111",
+                "toolbar_field_border": "#111111",
+                "toolbar_vertical_separator": "#111111",
+                "toolbar_bottom_separator": "#111111",
+                "toolbar_top_separator": "#111111"
             }
         },
         "second" : {
@@ -333,7 +332,7 @@ function fn() {
                 "tab_text": "white",
                 "textcolor": "white",
                 "toolbar_text": "white",
-                "toolbar": "rgba(9, 129, 241, 0.295)",
+                "toolbar": "rgba(9, 129, 241, 0.595)",
                 "toolbar_field": "rgba(255, 255, 255, 0.753)",
                 "toolbar_field_focus": "rgba(255, 255, 255, 0.753)",
                 "toolbar_field_text": "#111111",
@@ -747,7 +746,7 @@ function fn() {
     //########################### THEME TO SHOW IN HEADER OF TAB TO MATCH THE QUOTE THEME IMAGE ##################
     var quoteComplementaryTheme = {
         "images": {
-            "headerURL": "assets/images/haze1.jpg"
+            "headerURL": "assets/images/haze.jpg"
         },
         "colors": {
             "accentcolor": "lightblue",
@@ -781,6 +780,8 @@ function fn() {
     //################# THEME TRANSITION LOGIC ########################
 
     function startThemeTransition() {
+        console.log("inside startThemeTransition()");
+
         if(flag_weather || flag_quotes != "blank" || flag_private || flag_dan || flag_custom) {
             return;
         }else {
@@ -983,7 +984,7 @@ function fn() {
 
         if(!flag_weather && !private_theme_is_active && flag_quotes == "blank" && !flag_custom) {   // THIS FUNCTION IS ALLOWED TO EXECUTE ONLY IF WEATHER MODE IS OFF
             if (flag_dan) {
-                if ((hours >= 8) && (hours < 20)) {
+                if ((hours >= 8) && (hours < 9)) {
                     chooseFromNormal(theme_choice_global);  // Selects the chosen one from CATEGORIES
                 } else {
                     browser.theme.update(nightThemes.first);
@@ -1125,7 +1126,7 @@ function fn() {
     }
 
     function renderAnimalsTheme() {
-        var newTheme = animalsThemes.first;
+        var newTheme = animalsThemes.fifth;
         browser.theme.update(newTheme);
     }
 
@@ -1135,7 +1136,7 @@ function fn() {
     }
 
     function renderPatternsTheme() {
-        var newTheme = patternsThemes.first;
+        var newTheme = patternsThemes.fifth;
         browser.theme.update(newTheme);
     }
 
@@ -1311,7 +1312,8 @@ function fn() {
             private_theme_is_active = false;
         }
 
-        // TRANSITION LOGIC
+        // TRANSITION LOGIC (weather, quotes and custom modes aren't checked because if any
+        // one of them were true, then function would "return;" before coming here)
         if(check_interval != "infinite" && !flag_dan && !flag_private) {
             browser.alarms.onAlarm.addListener(startThemeTransition);
             browser.alarms.create("startThemeTransition", {periodInMinutes: check_interval});

@@ -9,6 +9,11 @@
       "64": "assets/icons/icon64.png",
       "128": "assets/icons/icon128.png"
     },
+    "applications": {
+        "gecko": {
+          "id": "{13347aa5-9743-463e-b896-796114c1a56c}"
+        }
+    },
     "background": {
         "scripts": ["background.js"]
     },

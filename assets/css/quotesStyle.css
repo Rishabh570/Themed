@@ -1,12 +1,21 @@
-/* @import url('https://fonts.googleapis.com/css?family=Merienda'); */
+/* cute-font-regular - latin */
+@font-face {
+    font-family: 'Cute Font';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Cute Font Regular'), local('CuteFont-Regular'),
+         url('../font/Cute_font/cute-font-v2-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('../font/Cute_font/cute-font-v2-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
 
 #quote-content {
     width: 20%;
-    height: 100%;
+    height: auto;
     margin: auto 0;
     padding: 30px;
     background: #2cbeeb79;
-    font-family: 'Luckiest Guy', cursive;
+    border-radius: 1em;
+    font-family: 'Cute Font';
     font-size: 1.9rem;
     text-align: center;
     font-weight: 800;

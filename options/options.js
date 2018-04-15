@@ -104,7 +104,7 @@ $("#setting-tabtextcolor").spectrum({
 // is not checked otherwise "infinite" gets stored in storage
 slider.oninput = function() {
     if(!prevent.checked) {
-        freq_value.innerHTML = this.value;  // this shows minutes in options page in real time
+        freq_value.innerHTML = "finite";  // this shows minutes in options page in real time
     }
     interval = parseInt(this.value);  // interval variable is set to the minutes, will be used in transition logic
 }
@@ -114,7 +114,7 @@ prevent.addEventListener("click", function() {
     if(prevent.checked) {
         freq_value.innerHTML = "infinite";
     }else {
-        freq_value.innerHTML = interval;
+        freq_value.innerHTML = "finite";
     }
 })
 
@@ -124,7 +124,6 @@ prevent.addEventListener("click", function() {
 
 $('#quote').click(function() {
     if($(this).prop('checked')) {
-        console.log('quote checked\n')
         $('.weather-mode').slideToggle();
         $('.quote-options').delay(400).slideToggle();
         $('.container5').fadeOut();
@@ -346,7 +345,7 @@ function updateUI(restoredSettings) {
     if(check_interval != "infinite") {
         prevent.checked = false;
         slider.value = check_interval;
-        freq_value.innerHTML = check_interval;
+        freq_value.innerHTML = "finite";
     }else {
         freq_value.innerHTML = "infinite";
         prevent.checked = true;
