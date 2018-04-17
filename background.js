@@ -497,9 +497,7 @@ function fn() {
                 "toolbar_field": "lightcyan",
                 "toolbar_field_text": "black",
                 "toolbar_field_border": "lightcyan",
-                // "toolbar_vertical_separator": "#111111",
                 "toolbar_text": "white"
-                // "toolbar_field_border": "black"
                 }
             }
         };
@@ -925,7 +923,7 @@ function fn() {
 
         if (theme.includes("clear")) {
             browser.theme.update(weatherThemes.clear);
-        }else if(theme.includes("clouds")) {
+        }else if(theme.includes("cloud")) {
             browser.theme.update(weatherThemes.clouds);
         }else if(theme.includes("rain")) {
             browser.theme.update(weatherThemes.rain);
@@ -1294,7 +1292,6 @@ function fn() {
         // Adds alarms for DaN theme if given condition satisfies
         if (check_dan && !flag_custom) {
             flag_dan = true;
-            console.log("alarms initiated.");
             browser.alarms.onAlarm.addListener(executeDanTheme);
             browser.alarms.create("executeDanTheme", {periodInMinutes: 5});
         }
@@ -1346,7 +1343,7 @@ function fn() {
         browser.runtime.openOptionsPage();
     }
 
-    //############# STORES INITIAL VALUES IN STORAGE (JUST TO OUTPUT A DEFAULT THEME FOR First/Initial RUN)###############
+    // STORES INITIAL VALUES IN STORAGE (JUST TO OUTPUT A DEFAULT THEME FOR First/Initial RUN)
     browser.storage.local.set(
         {
             "category": "natural",
@@ -1362,19 +1359,22 @@ function fn() {
 
     //###################### EVENT LISTENERS #################################
 
+    var get_setting, get_interval, get_extrakeys;
     // Triggers at the very start to give global variable
     // appropriate values
     browser.storage.local.get().then((storedConfig) => {
-        console.log("Inside storage.local.get()... IT ran before storage.onUpdated!!!");
         flag_private = storedConfig.private;
         flag_dan = storedConfig.dan;
         flag_weather = storedConfig.weather;
         flag_quotes = storedConfig.quote_type;
+        get_setting = storedConfig.setting;
+        get_interval = storedConfig.interval;
+        get_extrakeys = storedConfig.extra_keys;
 
         // Theme_choice is stored in a global variable so that it can be accessed other functions in this script
         theme_choice_global = storedConfig.category;
 
-        executePrivateTheme();  // It is called because it's the main function which then diverges to executeDanTheme()
+            executePrivateTheme();  // It is called because it's the main function which then diverges to executeDanTheme()
                                 // which then diverges to chooseFromNormal() based on conditions.
     })
 
